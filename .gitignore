@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build output
+/.next/
+/dist/
+
+# Testing
+/coverage/
+
+# Local env files
+.env*.local
+
+# Worktrees
+.worktrees/
+worktrees/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
