@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProzentRechner — Konversationeller Rechner (Prototype)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #111111;
+      --ink: #111111;
+      --body: #374151;
+      --muted: #6b7280;
+      --muted-soft: #898989;
+      --hairline: #e5e7eb;
+      --hairline-soft: #f3f4f6;
+      --canvas: #ffffff;
+      --surface-soft: #f8f9fa;
+      --surface-card: #f5f5f5;
+      --surface-strong: #e5e7eb;
+      --brand-accent: #3b82f6;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: var(--canvas);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .prototype-banner {
+      background: var(--warning);
+      color: var(--primary);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .top-nav {
+      height: 64px;
+      border-bottom: 1px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      background: var(--canvas);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo { font-weight: 600; font-size: 18px; letter-spacing: -0.3px; }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: var(--body);
+      margin-bottom: 48px;
+    }
+
+    .mode-card {
+      background: var(--surface-soft);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+
+    .mode-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0 0 12px;
+    }
+
+    .sentence {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 2;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 6px;
+    }
+
+    .sentence input,
+    .sentence select {
+      height: 44px;
+      min-width: 90px;
+      padding: 0 10px;
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: inherit;
+      color: var(--brand-accent);
+      background: var(--canvas);
+      text-align: center;
+      outline: none;
+    }
+
+    .sentence input:focus,
+    .sentence select:focus {
+      border-color: var(--brand-accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+    }
+
+    .sentence select {
+      cursor: pointer;
+      appearance: none;
+      padding-right: 28px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+    }
+
+    .result-line {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .result-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .result-formula {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--muted-soft);
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .copy-mini {
+      margin-left: auto;
+      padding: 6px 10px;
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      background: var(--canvas);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .copy-mini:hover { background: var(--surface-card); }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 32px; }
+      .sentence { font-size: 18px; line-height: 2.2; }
+      .sentence input, .sentence select { font-size: 16px; height: 40px; min-width: 70px; }
+      .mode-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="prototype-banner">
+    PROTOTYPE — Variant B: conversational, all-modes-on-one-page, still real-time (no button)
+  </div>
+
+  <nav class="top-nav">
+    <div class="logo">ProzentRechner</div>
+    <div style="font-size:14px;color:var(--muted);">Alle Rechner ▾</div>
+  </nav>
+
+  <main>
+    <h1>Berechnet schnell &amp; einfach alle Prozentaufgaben</h1>
+    <p class="intro">Gib die bekannten Werte ein — die Lösung erscheint sofort, ohne "Berechnen" zu klicken.</p>
+
+    <!-- 1. Prozentwert -->
+    <section class="mode-card">
+      <div class="mode-title">Prozentwert</div>
+      <div class="sentence">
+        Wie viel sind
+        <input id="p1" type="text" inputmode="decimal" placeholder="20" /> %
+        von
+        <input id="g1" type="text" inputmode="decimal" placeholder="500" /> € ?
+      </div>
+      <div class="result-line">
+        <span class="result-label">Ergebnis:</span>
+        <span id="r1" class="result-value">—</span>
+        <button class="copy-mini" data-mode="1">📋</button>
+        <div id="f1" class="result-formula">W = G × p / 100</div>
+      </div>
+    </section>
+
+    <!-- 2. Prozentsatz -->
+    <section class="mode-card">
+      <div class="mode-title">Prozentsatz</div>
+      <div class="sentence">
+        <input id="w2" type="text" inputmode="decimal" placeholder="100" />
+        sind wie viel % von
+        <input id="g2" type="text" inputmode="decimal" placeholder="500" /> ?
+      </div>
+      <div class="result-line">
+        <span class="result-label">Ergebnis:</span>
+        <span id="r2" class="result-value">—</span>
+        <button class="copy-mini" data-mode="2">📋</button>
+        <div id="f2" class="result-formula">p% = W / G × 100</div>
+      </div>
+    </section>
+
+    <!-- 3. Grundwert -->
+    <section class="mode-card">
+      <div class="mode-title">Grundwert</div>
+      <div class="sentence">
+        <input id="w3" type="text" inputmode="decimal" placeholder="100" />
+        sind
+        <input id="p3" type="text" inputmode="decimal" placeholder="20" /> %
+        von wie viel?
+      </div>
+      <div class="result-line">
+        <span class="result-label">Ergebnis:</span>
+        <span id="r3" class="result-value">—</span>
+        <button class="copy-mini" data-mode="3">📋</button>
+        <div id="f3" class="result-formula">G = W / p × 100</div>
+      </div>
+    </section>
+
+    <!-- 4. Prozentuale Veränderung -->
+    <section class="mode-card">
+      <div class="mode-title">Prozentuale Veränderung</div>
+      <div class="sentence">
+        Von
+        <input id="a4" type="text" inputmode="decimal" placeholder="100" />
+        zu
+        <input id="b4" type="text" inputmode="decimal" placeholder="120" />
+        sind wie viel %?
+      </div>
+      <div class="result-line">
+        <span class="result-label">Ergebnis:</span>
+        <span id="r4" class="result-value">—</span>
+        <button class="copy-mini" data-mode="4">📋</button>
+        <div id="f4" class="result-formula">p% = (W₂ - W₁) / W₁ × 100</div>
+      </div>
+    </section>
+
+    <!-- 5. Rabatt -->
+    <section class="mode-card">
+      <div class="mode-title">Rabatt</div>
+      <div class="sentence">
+        Wie viel sind
+        <input id="p5" type="text" inputmode="decimal" placeholder="20" /> %
+        von
+        <input id="g5" type="text" inputmode="decimal" placeholder="80" /> € ?
+        Endpreis:
+        <span id="r5b" style="font-weight:600;">—</span>
+      </div>
+      <div class="result-line">
+        <span class="result-label">Rabatt:</span>
+        <span id="r5" class="result-value">—</span>
+        <button class="copy-mini" data-mode="5">📋</button>
+        <div id="f5" class="result-formula">Rabatt = G × p / 100; Endpreis = G - Rabatt</div>
+      </div>
+    </section>
+
+    <!-- 6. Mehrwertsteuer -->
+    <section class="mode-card">
+      <div class="mode-title">Mehrwertsteuer</div>
+      <div class="sentence">
+        Mehrwertsteuer aus
+        <input id="b6" type="text" inputmode="decimal" placeholder="119" /> €
+        Brutto bei
+        <input id="s6" type="text" inputmode="decimal" placeholder="19" /> %
+      </div>
+      <div class="result-line">
+        <span class="result-label">MwSt. / Netto:</span>
+        <span id="r6" class="result-value">—</span>
+        <button class="copy-mini" data-mode="6">📋</button>
+        <div id="f6" class="result-formula">MwSt. = Brutto × s / (100 + s); Netto = Brutto - MwSt.</div>
+      </div>
+    </section>
+
+    <!-- 7. Ab-/Zunahme -->
+    <section class="mode-card">
+      <div class="mode-title">Ab- / Zunahme</div>
+      <div class="sentence">
+        <input id="g7" type="text" inputmode="decimal" placeholder="100" />
+        um
+        <input id="p7" type="text" inputmode="decimal" placeholder="20" /> %
+        <select id="d7">
+          <option value="mehr">mehr</option>
+          <option value="weniger">weniger</option>
+        </select>
+        als wie viel?
+      </div>
+      <div class="result-line">
+        <span class="result-label">Ergebnis:</span>
+        <span id="r7" class="result-value">—</span>
+        <button class="copy-mini" data-mode="7">📋</button>
+        <div id="f7" class="result-formula">Ergebnis = G × (1 ± p / 100)</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const deCurrency = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const deNumber = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 6 });
+
+    function parse(raw) {
+      if (!raw || raw.trim() === '') return null;
+      let v = raw.replace(/[€%\s]/g, '').trim();
+      if (v.includes(',') && v.includes('.')) {
+        v = v.lastIndexOf(',') > v.lastIndexOf('.') ? v.replace(/\./g, '').replace(',', '.') : v.replace(/,/g, '');
+      } else if (v.includes(',')) {
+        v = v.replace(',', '.');
+      }
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmtCurrency(n) { return n == null ? '—' : deCurrency.format(n) + ' €'; }
+    function fmtPct(n) { return n == null ? '—' : deNumber.format(n) + ' %'; }
+
+    const modes = {
+      1: () => {
+        const p = parse(document.getElementById('p1').value);
+        const g = parse(document.getElementById('g1').value);
+        const r = p != null && g != null ? (g * p) / 100 : null;
+        document.getElementById('r1').textContent = fmtCurrency(r);
+        document.getElementById('f1').textContent = r != null
+          ? `W = ${deNumber.format(g)} × ${deNumber.format(p)} / 100 = ${fmtCurrency(r)}`
+          : 'W = G × p / 100';
+        return r != null ? `${deNumber.format(p)}% von ${deNumber.format(g)}€ = ${fmtCurrency(r)}` : null;
+      },
+      2: () => {
+        const w = parse(document.getElementById('w2').value);
+        const g = parse(document.getElementById('g2').value);
+        const r = w != null && g != null && g !== 0 ? (w / g) * 100 : null;
+        document.getElementById('r2').textContent = fmtPct(r);
+        document.getElementById('f2').textContent = r != null
+          ? `p% = ${deNumber.format(w)} / ${deNumber.format(g)} × 100 = ${fmtPct(r)}`
+          : 'p% = W / G × 100';
+        return r != null ? `${deNumber.format(w)} sind ${fmtPct(r)} von ${deNumber.format(g)}` : null;
+      },
+      3: () => {
+        const w = parse(document.getElementById('w3').value);
+        const p = parse(document.getElementById('p3').value);
+        const r = w != null && p != null && p !== 0 ? (w / p) * 100 : null;
+        document.getElementById('r3').textContent = fmtCurrency(r);
+        document.getElementById('f3').textContent = r != null
+          ? `G = ${deNumber.format(w)} / ${deNumber.format(p)} × 100 = ${fmtCurrency(r)}`
+          : 'G = W / p × 100';
+        return r != null ? `${deNumber.format(w)} sind ${deNumber.format(p)}% von ${fmtCurrency(r)}` : null;
+      },
+      4: () => {
+        const a = parse(document.getElementById('a4').value);
+        const b = parse(document.getElementById('b4').value);
+        const r = a != null && b != null && a !== 0 ? ((b - a) / a) * 100 : null;
+        document.getElementById('r4').textContent = fmtPct(r);
+        document.getElementById('f4').textContent = r != null
+          ? `p% = (${deNumber.format(b)} - ${deNumber.format(a)}) / ${deNumber.format(a)} × 100 = ${fmtPct(r)}`
+          : 'p% = (W₂ - W₁) / W₁ × 100';
+        return r != null ? `Von ${deNumber.format(a)} zu ${deNumber.format(b)}: ${fmtPct(r)}` : null;
+      },
+      5: () => {
+        const p = parse(document.getElementById('p5').value);
+        const g = parse(document.getElementById('g5').value);
+        const rabatt = p != null && g != null ? (g * p) / 100 : null;
+        const endpreis = rabatt != null ? g - rabatt : null;
+        document.getElementById('r5').textContent = fmtCurrency(rabatt);
+        document.getElementById('r5b').textContent = fmtCurrency(endpreis);
+        document.getElementById('f5').textContent = rabatt != null
+          ? `Rabatt = ${deNumber.format(g)} × ${deNumber.format(p)} / 100 = ${fmtCurrency(rabatt)}`
+          : 'Rabatt = G × p / 100; Endpreis = G - Rabatt';
+        return rabatt != null ? `${deNumber.format(p)}% Rabatt auf ${deNumber.format(g)}€ = ${fmtCurrency(rabatt)} (Endpreis ${fmtCurrency(endpreis)})` : null;
+      },
+      6: () => {
+        const b = parse(document.getElementById('b6').value);
+        const s = parse(document.getElementById('s6').value);
+        const mwst = b != null && s != null && s !== -100 ? (b * s) / (100 + s) : null;
+        const netto = mwst != null ? b - mwst : null;
+        document.getElementById('r6').textContent = mwst != null
+          ? `MwSt. ${fmtCurrency(mwst)} / Netto ${fmtCurrency(netto)}`
+          : '—';
+        document.getElementById('f6').textContent = mwst != null
+          ? `MwSt. = ${deNumber.format(b)} × ${deNumber.format(s)} / ${100 + s} = ${fmtCurrency(mwst)}`
+          : 'MwSt. = Brutto × s / (100 + s); Netto = Brutto - MwSt.';
+        return mwst != null ? `MwSt. aus ${deNumber.format(b)}€ bei ${deNumber.format(s)}%: ${fmtCurrency(mwst)}` : null;
+      },
+      7: () => {
+        const g = parse(document.getElementById('g7').value);
+        const p = parse(document.getElementById('p7').value);
+        const d = document.getElementById('d7').value;
+        const factor = d === 'mehr' ? 1 : -1;
+        const r = g != null && p != null ? g * (1 + (factor * p) / 100) : null;
+        document.getElementById('r7').textContent = fmtCurrency(r);
+        document.getElementById('f7').textContent = r != null
+          ? `Ergebnis = ${deNumber.format(g)} × (1 ${factor > 0 ? '+' : '-'} ${deNumber.format(p)} / 100) = ${fmtCurrency(r)}`
+          : 'Ergebnis = G × (1 ± p / 100)';
+        return r != null ? `${deNumber.format(g)} um ${deNumber.format(p)}% ${d}: ${fmtCurrency(r)}` : null;
+      }
+    };
+
+    let timer;
+    function updateAll() {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        Object.values(modes).forEach(fn => fn());
+      }, 120);
+    }
+
+    document.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', updateAll);
+      el.addEventListener('change', updateAll);
+    });
+
+    document.querySelectorAll('.copy-mini').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const mode = btn.dataset.mode;
+        const text = modes[mode]();
+        if (!text) return;
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = '✓';
+        setTimeout(() => btn.textContent = old, 1200);
+      });
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>
