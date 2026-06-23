@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const withNextIntl = require('next-intl/plugin')('./i18n.ts');
+
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
@@ -6,4 +8,4 @@ const nextConfig = {
   trailingSlash: true,
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

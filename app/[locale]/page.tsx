@@ -1,4 +1,9 @@
 import Image from "next/image";
+import { locales } from "@/i18n";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default function Home() {
   return (

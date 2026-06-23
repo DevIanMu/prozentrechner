@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "title": "ProzentRechner",
+    "description": "Kostenloser Online-Prozentrechner"
+  },
+  "nav": {
+    "home": "Startseite",
+    "prozentwert": "Prozentwert",
+    "rabatt": "Rabatt",
+    "mehrwertsteuer": "MwSt.",
+    "veraenderung": "Veränderung",
+    "alleRechner": "Alle Rechner"
+  },
+  "calculator": {
+    "result": "Ergebnis",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "history": "Verlauf",
+    "clearHistory": "Verlauf löschen",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "formula": "Formel",
+    "steps": "Schritt für Schritt",
+    "tip": "Tipp",
+    "inputs": {
+      "grundwert": "Grundwert",
+      "prozentsatz": "Prozentsatz",
+      "prozentwert": "Prozentwert"
+    }
+  },
+  "errors": {
+    "invalidNumber": "Bitte gib eine gültige Zahl ein",
+    "divisionByZero": "Division durch Null nicht möglich"
+  },
+  "footer": {
+    "copyright": "© 2026 ProzentRechner"
+  }
+}
