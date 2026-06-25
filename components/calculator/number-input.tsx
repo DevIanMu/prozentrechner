@@ -11,7 +11,7 @@ export interface NumberInputProps {
   onChange: (value: number | null) => void;
   suffix?: string;
   placeholder?: string;
-  inputMode?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
 }
 
 export function NumberInput({
