@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-jetbrains-mono' });
+const inter = localFont({
+  src: '../fonts/Inter-latin.woff2',
+  variable: '--font-inter',
+  display: 'swap',
+});
+const jetbrainsMono = localFont({
+  src: '../fonts/JetBrainsMono-latin.woff2',
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'ProzentRechner',
