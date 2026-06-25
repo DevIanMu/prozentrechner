@@ -1,0 +1,51 @@
+mode: prozentwert
+metaTitle: "Prozentwert berechnen — Kostenloser Online-Rechner"
+metaDescription: "Berechne den Prozentwert mit der Formel W = G × p / 100. Einfach, schnell und mit Rechenweg."
+h1: "Prozentwert berechnen"
+intro: "Der Prozentwert-Rechner ermittelt, wie viel ein bestimmter Prozentsatz eines Grundwerts ausmacht. Gib Grundwert und Prozentsatz ein — das Ergebnis erscheint sofort."
+formulaGeneral: "W = G \\times \\frac{p}{100}"
+educationTitle: "Was ist der Prozentwert?"
+educationText: |
+  Der Prozentwert (W) ist das Ergebnis einer Prozentrechnung. Er gibt an, wie viel ein bestimmter Anteil in absoluten Zahlen ausmacht.
+
+  Die klassische Aufgabenstellung lautet: „Wie viel sind 20 % von 500 €?“ Hier ist 500 € der Grundwert (G), 20 % der Prozentsatz (p) und das gesuchte Ergebnis 100 € der Prozentwert (W).
+
+  Die Formel lautet: W = G × p / 100. Du multiplizierst also den Grundwert mit dem Prozentsatz und teilst das Ergebnis durch 100.
+
+  Typische Anwendungen sind Rabatte, Mehrwertsteuer, Trinkgeld oder Notenberechnungen. Ein häufiger Fehler ist es, den Prozentsatz direkt mit dem Grundwert zu multiplizieren und dabei die Division durch 100 zu vergessen — das Ergebnis wäre dann 100-mal zu groß.
+
+tip: "Verdopple den Prozentsatz und halbiere den Grundwert — das Ergebnis bleibt gleich."
+faq:
+  - question: "Was ist der Unterschied zwischen Prozentwert und Prozentsatz?"
+    answer: "Der Prozentsatz gibt den Anteil in Hundertsteln an (z. B. 20 %). Der Prozentwert ist der dazugehörige absolute Betrag (z. B. 100 €)."
+  - question: "Wie berechne ich 20 % von 500 €?"
+    answer: "500 € × 20 / 100 = 100 €. Der Prozentwert beträgt also 100 €."
+  - question: "Kann ich auch Kommazahlen als Prozentsatz eingeben?"
+    answer: "Ja, du kannst Werte wie 19,5 % oder 7,5 % eingeben. Verwende dafür das Komma als Dezimaltrennzeichen."
+  - question: "Warum muss ich durch 100 teilen?"
+    answer: "Prozent bedeutet „pro Hundert“. 20 % entspricht 20/100 = 0,2. Daher wird der Grundwert mit diesem Faktor multipliziert."
+  - question: "Was ist der Grundwert in der Prozentrechnung?"
+    answer: "Der Grundwert ist die Ausgangszahl, auf die sich der Prozentsatz bezieht. In „20 % von 500 €“ ist 500 € der Grundwert."
+  - question: "Kann der Prozentwert größer als der Grundwert sein?"
+    answer: "Ja, sobald der Prozentsatz über 100 % liegt. 150 % von 200 sind beispielsweise 300."
+quiz:
+  - question: "Wie viel sind 25 % von 200 €?"
+    options: ["25 €", "50 €", "75 €", "100 €"]
+    correctIndex: 1
+    explanation: "200 € × 25 / 100 = 50 €."
+  - question: "Welche Formel berechnet den Prozentwert?"
+    options: ["W = G × p / 100", "W = G / p × 100", "W = G + p", "W = G - p"]
+    correctIndex: 0
+    explanation: "Der Prozentwert ergibt sich aus Grundwert mal Prozentsatz geteilt durch 100."
+  - question: "10 % von 80 kg sind:"
+    options: ["0,8 kg", "8 kg", "80 kg", "800 kg"]
+    correctIndex: 1
+    explanation: "80 kg × 10 / 100 = 8 kg."
+  - question: "120 % von 50 sind:"
+    options: ["40", "50", "60", "120"]
+    correctIndex: 2
+    explanation: "50 × 120 / 100 = 60."
+relatedModes:
+  - "rabatt-berechnen"
+  - "prozentuale-veraenderung"
+  - "abzunahme"
