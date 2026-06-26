@@ -5,7 +5,6 @@ import { loadCalculatorContent } from '@/lib/content';
 import { CalculatorClient } from '@/components/calculator/calculator-client';
 import { JsonLd } from '@/components/schema/json-ld';
 import {
-  buildBreadcrumbListSchema,
   buildSoftwareApplicationSchema,
   buildFAQPageSchema,
 } from '@/lib/schema';
@@ -50,20 +49,24 @@ export default async function ProzentwertPage({
   const content = loadCalculatorContent('prozentwert', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const breadcrumbItems = [
+    { name: t('home'), url: `${baseUrl}/` },
+    { name: content.h1, url: `${baseUrl}/prozentwert/` },
+  ];
 
   return (
     <>
       <JsonLd
         data={[
-          buildBreadcrumbListSchema([
-            { name: t('home'), url: `${baseUrl}/` },
-            { name: content.h1, url: `${baseUrl}/prozentwert/` },
-          ]),
           buildSoftwareApplicationSchema(content),
           buildFAQPageSchema(content.faq),
         ]}
       />
-      <CalculatorClient modeId="prozentwert" content={content} />
+      <CalculatorClient
+        modeId="prozentwert"
+        content={content}
+        breadcrumbItems={breadcrumbItems}
+      />
     </>
   );
 }

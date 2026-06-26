@@ -4,7 +4,6 @@ import { loadCalculatorContent } from '@/lib/content';
 import { CalculatorClient } from '@/components/calculator/calculator-client';
 import { JsonLd } from '@/components/schema/json-ld';
 import {
-  buildBreadcrumbListSchema,
   buildSoftwareApplicationSchema,
   buildFAQPageSchema,
 } from '@/lib/schema';
@@ -49,20 +48,24 @@ export default async function RabattPage({
   const content = loadCalculatorContent('rabatt-berechnen', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const breadcrumbItems = [
+    { name: t('home'), url: `${baseUrl}/` },
+    { name: content.h1, url: `${baseUrl}/rabatt-berechnen/` },
+  ];
 
   return (
     <>
       <JsonLd
         data={[
-          buildBreadcrumbListSchema([
-            { name: t('home'), url: `${baseUrl}/` },
-            { name: content.h1, url: `${baseUrl}/rabatt-berechnen/` },
-          ]),
           buildSoftwareApplicationSchema(content),
           buildFAQPageSchema(content.faq),
         ]}
       />
-      <CalculatorClient modeId="rabatt-berechnen" content={content} />
+      <CalculatorClient
+        modeId="rabatt-berechnen"
+        content={content}
+        breadcrumbItems={breadcrumbItems}
+      />
     </>
   );
 }

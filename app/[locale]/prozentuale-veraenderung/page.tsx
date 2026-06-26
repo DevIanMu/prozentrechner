@@ -4,7 +4,6 @@ import { loadCalculatorContent } from '@/lib/content';
 import { CalculatorClient } from '@/components/calculator/calculator-client';
 import { JsonLd } from '@/components/schema/json-ld';
 import {
-  buildBreadcrumbListSchema,
   buildSoftwareApplicationSchema,
   buildFAQPageSchema,
 } from '@/lib/schema';
@@ -49,20 +48,24 @@ export default async function ProzentualeVeraenderungPage({
   const content = loadCalculatorContent('prozentuale-veraenderung', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const breadcrumbItems = [
+    { name: t('home'), url: `${baseUrl}/` },
+    { name: content.h1, url: `${baseUrl}/prozentuale-veraenderung/` },
+  ];
 
   return (
     <>
       <JsonLd
         data={[
-          buildBreadcrumbListSchema([
-            { name: t('home'), url: `${baseUrl}/` },
-            { name: content.h1, url: `${baseUrl}/prozentuale-veraenderung/` },
-          ]),
           buildSoftwareApplicationSchema(content),
           buildFAQPageSchema(content.faq),
         ]}
       />
-      <CalculatorClient modeId="prozentuale-veraenderung" content={content} />
+      <CalculatorClient
+        modeId="prozentuale-veraenderung"
+        content={content}
+        breadcrumbItems={breadcrumbItems}
+      />
     </>
   );
 }

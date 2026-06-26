@@ -4,7 +4,6 @@ import { loadCalculatorContent } from '@/lib/content';
 import { CalculatorClient } from '@/components/calculator/calculator-client';
 import { JsonLd } from '@/components/schema/json-ld';
 import {
-  buildBreadcrumbListSchema,
   buildSoftwareApplicationSchema,
   buildFAQPageSchema,
 } from '@/lib/schema';
@@ -49,20 +48,24 @@ export default async function MehrwertsteuerPage({
   const content = loadCalculatorContent('mehrwertsteuer', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const breadcrumbItems = [
+    { name: t('home'), url: `${baseUrl}/` },
+    { name: content.h1, url: `${baseUrl}/mehrwertsteuer/` },
+  ];
 
   return (
     <>
       <JsonLd
         data={[
-          buildBreadcrumbListSchema([
-            { name: t('home'), url: `${baseUrl}/` },
-            { name: content.h1, url: `${baseUrl}/mehrwertsteuer/` },
-          ]),
           buildSoftwareApplicationSchema(content),
           buildFAQPageSchema(content.faq),
         ]}
       />
-      <CalculatorClient modeId="mehrwertsteuer" content={content} />
+      <CalculatorClient
+        modeId="mehrwertsteuer"
+        content={content}
+        breadcrumbItems={breadcrumbItems}
+      />
     </>
   );
 }
