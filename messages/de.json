@@ -23,6 +23,9 @@
     "relatedCalculators": {
       "title": "Verwandte Rechner"
     },
+    "faq": {
+      "title": "Häufig gestellte Fragen"
+    },
     "steps": "Schritt für Schritt",
     "stepsPlaceholder": "Gib alle Werte ein, um den Rechenweg zu sehen.",
     "tip": "Tipp",
