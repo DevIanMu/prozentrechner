@@ -49,6 +49,11 @@
     "divisionByZero": "Division durch Null nicht möglich"
   },
   "footer": {
-    "copyright": "© 2026 ProzentRechner"
+    "copyright": "© 2026 ProzentRechner",
+    "calculators": "Rechner",
+    "legal": "Rechtliches",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "tagline": "Kostenloser Online-Prozentrechner"
   }
 }
