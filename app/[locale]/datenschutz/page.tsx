@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { JsonLd } from '@/components/schema/json-ld';
 import { buildBreadcrumbListSchema } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 
 function getBaseUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
@@ -19,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'datenschutz' });
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/datenschutz/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/datenschutz/');
 
   return {
     title: t('metaTitle'),
@@ -43,10 +44,11 @@ export default async function DatenschutzPage({
   const t = await getTranslations({ locale, namespace: 'datenschutz' });
   const tNav = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/datenschutz/');
 
   const breadcrumbItems = [
-    { name: tNav('home'), url: `${baseUrl}/` },
-    { name: t('title'), url: `${baseUrl}/datenschutz/` },
+    { name: tNav('home'), url: buildCanonicalUrl(baseUrl, locale, '/') },
+    { name: t('title'), url: canonical },
   ];
 
   /*

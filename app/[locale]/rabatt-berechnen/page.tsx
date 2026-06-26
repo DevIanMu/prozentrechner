@@ -8,6 +8,7 @@ import {
   buildFAQPageSchema,
 } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 
 function getBaseUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
@@ -24,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const content = loadCalculatorContent('rabatt-berechnen', locale);
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/rabatt-berechnen/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/rabatt-berechnen/');
 
   return {
     title: content.metaTitle,
@@ -48,9 +49,10 @@ export default async function RabattPage({
   const content = loadCalculatorContent('rabatt-berechnen', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/rabatt-berechnen/');
   const breadcrumbItems = [
-    { name: t('home'), url: `${baseUrl}/` },
-    { name: content.h1, url: `${baseUrl}/rabatt-berechnen/` },
+    { name: t('home'), url: buildCanonicalUrl(baseUrl, locale, '/') },
+    { name: content.h1, url: canonical },
   ];
 
   return (

@@ -8,6 +8,7 @@ import {
   buildFAQPageSchema,
 } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 
 function getBaseUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
@@ -24,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const content = loadCalculatorContent('mehrwertsteuer', locale);
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/mehrwertsteuer/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/mehrwertsteuer/');
 
   return {
     title: content.metaTitle,
@@ -48,9 +49,10 @@ export default async function MehrwertsteuerPage({
   const content = loadCalculatorContent('mehrwertsteuer', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/mehrwertsteuer/');
   const breadcrumbItems = [
-    { name: t('home'), url: `${baseUrl}/` },
-    { name: content.h1, url: `${baseUrl}/mehrwertsteuer/` },
+    { name: t('home'), url: buildCanonicalUrl(baseUrl, locale, '/') },
+    { name: content.h1, url: canonical },
   ];
 
   return (

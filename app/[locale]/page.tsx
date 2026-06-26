@@ -6,6 +6,7 @@ import { FAQBand } from '@/components/faq-band';
 import { JsonLd } from '@/components/schema/json-ld';
 import { buildWebSiteSchema, buildOrganizationSchema } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 import type { FAQ } from '@/lib/content';
 
 function getBaseUrl(): string {
@@ -23,7 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'home' });
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/');
 
   return {
     title: t('heroTitle'),

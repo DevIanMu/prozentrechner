@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { TopNav } from '@/components/layout/top-nav';
 import Footer from '@/components/layout/footer';
+import { buildCanonicalUrl } from '@/lib/navigation';
 import './globals.css';
 
 const inter = localFont({
@@ -17,10 +18,27 @@ const jetbrainsMono = localFont({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'ProzentRechner',
-  description: 'Kostenloser Online-Prozentrechner',
-};
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/');
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical,
+      languages: {
+        'de-DE': canonical,
+        'de-AT': canonical,
+        'de-CH': canonical,
+      },
+    },
+  };
+}
 
 export default async function LocaleLayout({
   children,

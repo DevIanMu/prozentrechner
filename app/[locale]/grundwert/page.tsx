@@ -8,6 +8,7 @@ import {
   buildFAQPageSchema,
 } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 
 function getBaseUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
@@ -24,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const content = loadCalculatorContent('grundwert', locale);
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/grundwert/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/grundwert/');
 
   return {
     title: content.metaTitle,
@@ -48,9 +49,10 @@ export default async function GrundwertPage({
   const content = loadCalculatorContent('grundwert', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/grundwert/');
   const breadcrumbItems = [
-    { name: t('home'), url: `${baseUrl}/` },
-    { name: content.h1, url: `${baseUrl}/grundwert/` },
+    { name: t('home'), url: buildCanonicalUrl(baseUrl, locale, '/') },
+    { name: content.h1, url: canonical },
   ];
 
   return (

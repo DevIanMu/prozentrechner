@@ -8,6 +8,7 @@ import {
   buildFAQPageSchema,
 } from '@/lib/schema';
 import { locales } from '@/i18n';
+import { buildCanonicalUrl } from '@/lib/navigation';
 
 function getBaseUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
@@ -24,7 +25,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const content = loadCalculatorContent('prozentuale-veraenderung', locale);
   const baseUrl = getBaseUrl();
-  const canonical = `${baseUrl}/prozentuale-veraenderung/`;
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/prozentuale-veraenderung/');
 
   return {
     title: content.metaTitle,
@@ -48,9 +49,10 @@ export default async function ProzentualeVeraenderungPage({
   const content = loadCalculatorContent('prozentuale-veraenderung', locale);
   const t = await getTranslations('nav');
   const baseUrl = getBaseUrl();
+  const canonical = buildCanonicalUrl(baseUrl, locale, '/prozentuale-veraenderung/');
   const breadcrumbItems = [
-    { name: t('home'), url: `${baseUrl}/` },
-    { name: content.h1, url: `${baseUrl}/prozentuale-veraenderung/` },
+    { name: t('home'), url: buildCanonicalUrl(baseUrl, locale, '/') },
+    { name: content.h1, url: canonical },
   ];
 
   return (
