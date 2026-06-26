@@ -35,7 +35,7 @@ export function RelatedCalculators({ modeIds, title }: RelatedCalculatorsProps) 
   }
 
   return (
-    <section className="w-full">
+    <section className={"related-calculators w-full" /* print hook */}>
       <h2 className="text-title-md text-ink mb-4">{sectionTitle}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {modes.map((mode) => (

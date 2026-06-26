@@ -8,7 +8,7 @@ export default async function Footer() {
   const tCalculator = await getTranslations('calculator');
 
   return (
-    <footer className="bg-surface-dark text-on-dark py-16">
+    <footer className={"site-footer bg-surface-dark text-on-dark py-16" /* print hook */}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
           {/* Logo + wordmark */}

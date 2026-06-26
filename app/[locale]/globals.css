@@ -37,3 +37,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide site chrome and interactive bands; keep only the desktop explanation panel visible. */
+@media print {
+  .site-header,
+  .site-footer,
+  .related-calculators,
+  .quiz-band,
+  .history-drawer,
+  .explanation-panel-mobile {
+    display: none !important;
+  }
+
+  .explanation-panel-print {
+    display: block !important;
+  }
+}

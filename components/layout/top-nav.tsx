@@ -60,7 +60,7 @@ export function TopNav() {
   );
 
   return (
-    <header className="sticky top-0 z-40 h-16 bg-canvas border-b border-hairline">
+    <header className={"site-header sticky top-0 z-40 h-16 bg-canvas border-b border-hairline" /* print hook */}>
       <div className="flex h-full items-center justify-between px-4 md:px-6">
         <Link
           href="/"

@@ -100,7 +100,7 @@ export function CalculatorClient({
               calculation={calculation}
             />
 
-            <div className="hidden lg:block">
+            <div className={"hidden lg:block explanation-panel-print" /* print hook */}>
               <ExplanationPanel
                 result={calculation}
                 generalFormula={content.formulaGeneral}
@@ -110,7 +110,7 @@ export function CalculatorClient({
             </div>
           </div>
 
-          <div className="mt-6 lg:hidden">
+          <div className={"mt-6 lg:hidden explanation-panel-mobile" /* print hook */}>
             <ExplanationPanel
               result={calculation}
               generalFormula={content.formulaGeneral}

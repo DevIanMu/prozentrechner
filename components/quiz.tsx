@@ -46,7 +46,7 @@ export function Quiz({ items }: QuizProps) {
   }
 
   return (
-    <section className="w-full">
+    <section className={"quiz-band w-full" /* print hook */}>
       <div aria-live="polite" className="sr-only" data-testid="quiz-live-region">
         {liveMessage}
       </div>

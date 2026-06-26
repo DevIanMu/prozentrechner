@@ -56,7 +56,7 @@ export function HistoryDrawer({ mode, onSelect }: HistoryDrawerProps) {
   }
 
   return (
-    <div className="rounded-lg border border-hairline bg-surface-card">
+    <div className={"history-drawer rounded-lg border border-hairline bg-surface-card" /* print hook */}>
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
