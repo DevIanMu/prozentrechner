@@ -1,0 +1,51 @@
+mode: grundwert
+metaTitle: "Grundwert berechnen — Kostenloser Online-Rechner"
+metaDescription: "Berechne den Grundwert mit der Formel G = W × 100 / p%. Einfach, schnell und mit Rechenweg."
+h1: "Grundwert berechnen"
+intro: "Der Grundwert-Rechner ermittelt die Ausgangszahl, auf die sich ein Prozentsatz bezieht. Gib den Prozentwert und den Prozentsatz ein — das Ergebnis erscheint sofort."
+formulaGeneral: "G = W \\times \\frac{100}{p\\%}"
+educationTitle: "Was ist der Grundwert?"
+educationText: |
+  Der Grundwert (G) ist die Ausgangszahl, auf die sich ein Prozentsatz bezieht. Er ist das „Ganze“, von dem ein bestimmter Prozentsatz berechnet wurde.
+
+  Die klassische Aufgabenstellung lautet: „100 € sind 20 %. Wie hoch ist der Grundwert?“ Hier ist 100 € der Prozentwert (W), 20 % der Prozentsatz (p) und der gesuchte Grundwert 500 €.
+
+  Die Formel lautet: G = W × 100 / p. Du multiplizierst also den Prozentwert mit 100 und teilst das Ergebnis durch den Prozentsatz.
+
+  Typische Anwendungen sind die Ermittlung des ursprünglichen Preises vor einem Rabatt, des Nettobetrags aus der Mehrwertsteuer oder des Gesamtkapitals aus einer Gewinnquote. Achtung: Der Prozentsatz darf nicht 0 sein, sonst ist eine Division durch Null nicht möglich.
+
+tip: "Prüfe das Ergebnis rückwärts: Grundwert × Prozentsatz / 100 muss den ursprünglichen Prozentwert ergeben."
+faq:
+  - question: "Was ist der Unterschied zwischen Grundwert und Prozentwert?"
+    answer: "Der Grundwert ist die Ausgangszahl (das Ganze). Der Prozentwert ist der absolute Anteil, der dem Prozentsatz entspricht."
+  - question: "Wie hoch ist der Grundwert, wenn 80 € 40 % sind?"
+    answer: "80 € × 100 / 40 = 200 €. Der Grundwert beträgt also 200 €."
+  - question: "Kann der Prozentsatz 0 sein?"
+    answer: "Nein, denn die Formel G = W × 100 / p erfordert eine Division durch p. Bei 0 % ist der Grundwert nicht bestimmbar."
+  - question: "Was ist der Grundwert bei einem Rabatt?"
+    answer: "Der ursprüngliche Preis vor dem Rabatt ist der Grundwert. Der Rabattbetrag ist der Prozentwert."
+  - question: "Wie berechne ich den Grundwert aus der Mehrwertsteuer?"
+    answer: "Bei 19 % MwSt. ist der Nettobetrag der Grundwert. Aus 19 € MwSt. ergibt sich 19 € × 100 / 19 = 100 € Netto."
+  - question: "Kann der Grundwert kleiner als der Prozentwert sein?"
+    answer: "Nein, solange der Prozentsatz unter 100 % liegt, ist der Prozentwert kleiner als der Grundwert."
+quiz:
+  - question: "120 € sind 30 %. Wie hoch ist der Grundwert?"
+    options: ["300 €", "360 €", "400 €", "480 €"]
+    correctIndex: 2
+    explanation: "120 € × 100 / 30 = 400 €."
+  - question: "Welche Formel berechnet den Grundwert?"
+    options: ["G = W × 100 / p", "G = W × p / 100", "G = W + p", "G = W − p"]
+    correctIndex: 0
+    explanation: "Der Grundwert ergibt sich aus Prozentwert mal 100 geteilt durch Prozentsatz."
+  - question: "50 € sind 25 %. Wie hoch ist der Grundwert?"
+    options: ["100 €", "150 €", "200 €", "250 €"]
+    correctIndex: 2
+    explanation: "50 € × 100 / 25 = 200 €."
+  - question: "90 kg sind 45 %. Wie hoch ist der Grundwert?"
+    options: ["150 kg", "180 kg", "200 kg", "225 kg"]
+    correctIndex: 2
+    explanation: "90 kg × 100 / 45 = 200 kg."
+relatedModes:
+  - "prozentwert"
+  - "prozentsatz"
+  - "rabatt-berechnen"
