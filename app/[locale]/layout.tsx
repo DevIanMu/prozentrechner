@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { TopNav } from '@/components/layout/top-nav';
+import Footer from '@/components/layout/footer';
 import './globals.css';
 
 const inter = localFont({
@@ -32,7 +34,9 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased bg-canvas text-ink">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          {children}
+          <TopNav />
+          <main>{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
