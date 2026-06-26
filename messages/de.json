@@ -22,6 +22,27 @@
       { "question": "Wie berechne ich Rabatte?", "answer": "Rabatt = Preis mal Rabattprozentsatz geteilt durch 100. Ein Rabatt von 20 % auf 70 € beträgt 14 €, der Endpreis liegt also bei 56 €." }
     ]
   },
+  "impressum": {
+    "metaTitle": "Impressum — ProzentRechner",
+    "metaDescription": "Impressum und rechtliche Angaben zu ProzentRechner.",
+    "title": "Impressum",
+    "placeholderNotice": "Die folgenden Angaben sind Platzhalter und müssen vor dem Launch durch die korrekten Daten ersetzt werden.",
+    "emailLabel": "E-Mail:",
+    "sections": {
+      "owner": "Angaben gemäß § 5 TMG",
+      "address": "Anschrift",
+      "contact": "Kontakt",
+      "responsible": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"
+    },
+    "placeholders": {
+      "ownerName": "[Name des Betreibers]",
+      "street": "[Straße und Hausnummer]",
+      "city": "[PLZ und Ort]",
+      "country": "[Land]",
+      "email": "[E-Mail-Adresse]",
+      "responsiblePerson": "[Name der verantwortlichen Person]"
+    }
+  },
   "nav": {
     "home": "Startseite",
     "prozentwert": "Prozentwert",
