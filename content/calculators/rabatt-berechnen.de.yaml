@@ -1,0 +1,44 @@
+mode: rabatt-berechnen
+metaTitle: "Rabatt berechnen — Kostenloser Online-Rechner"
+metaDescription: "Berechne Rabatt und Endpreis mit der Formel R = G × p / 100. Einfach, schnell und mit Rechenweg."
+h1: "Rabatt berechnen"
+intro: "Der Rabatt-Rechner ermittelt den Rabattbetrag und den reduzierten Endpreis. Gib den ursprünglichen Preis und den Rabatt in Prozent ein — das Ergebnis erscheint sofort."
+formulaGeneral: "R = G \\times \\frac{p}{100}"
+educationTitle: "Wie berechnet man einen Rabatt?"
+educationText: |
+  Ein Rabatt ist eine Preisminderung, die in Prozent vom ursprünglichen Preis angegeben wird. Der Rabattbetrag (R) ergibt sich aus dem Grundwert (G) multipliziert mit dem Rabattprozentsatz (p), geteilt durch 100.
+
+  Die Formel lautet: R = G × p / 100. Der Endpreis ist dann G − R.
+
+  Ein Beispiel: Ein Artikel kostet 70 € und es gibt 20 % Rabatt. Der Rabattbetrag beträgt 70 × 20 / 100 = 14 €. Der Endpreis ist 70 − 14 = 56 €.
+
+  Häufige Fehler: Rabatte addieren sich nicht einfach. 20 % Rabatt und dann noch 10 % Rabatt sind nicht 30 % Rabatt, sondern 28 % Rabatt, weil der zweite Rabatt auf den bereits reduzierten Preis gerechnet wird.
+tip: "Beim Vergleich von Angeboten immer auf den Endpreis achten, nicht nur auf die Prozentangabe."
+faq:
+  - question: "Wie berechne ich 20 % Rabatt?"
+    answer: "Preis × 20 / 100 = Rabattbetrag. Bei 70 € sind das 14 € Rabatt."
+  - question: "Was ist der Unterschied zwischen Rabatt und Skonto?"
+    answer: "Ein Rabatt ist eine sofortige Preisminderung. Skonto ist ein Zahlungsziel-Rabatt, den man erhält, wenn man innerhalb einer bestimmten Frist zahlt."
+  - question: "Wie hoch ist der Endpreis nach 20 % Rabatt?"
+    answer: "Endpreis = Preis − Rabatt. Bei 70 € und 20 % Rabatt: 70 € − 14 € = 56 €."
+  - question: "Kann der Rabatt größer als der Preis sein?"
+    answer: "Mathematisch ja, ab 100 % Rabatt würde der Artikel kostenlos. Über 100 % bedeutet der Verkäufer gibt zusätzlich Geld dazu."
+  - question: "Wie rechnet man mehrere Rabatte hintereinander um?"
+    answer: "Jeder Rabatt wird nacheinander auf den aktuellen Preis angewendet. 20 % und dann 10 % ergibt 28 % Rabatt insgesamt, nicht 30 %."
+quiz:
+  - question: "Ein Produkt kostet 80 €. Wie viel Rabatt gibt es bei 25 %?"
+    options: ["15 €", "20 €", "25 €", "30 €"]
+    correctIndex: 1
+    explanation: "80 € × 25 / 100 = 20 € Rabatt."
+  - question: "Was ist der Endpreis bei 50 € mit 10 % Rabatt?"
+    options: ["40 €", "45 €", "48 €", "49 €"]
+    correctIndex: 1
+    explanation: "Rabatt = 5 €, Endpreis = 50 € − 5 € = 45 €."
+  - question: "20 % Rabatt und danach 10 % Rabatt ergibt insgesamt:"
+    options: ["28 %", "30 %", "32 %", "35 %"]
+    correctIndex: 0
+    explanation: "100 → 80 (20 % Rabatt) → 72 (10 % Rabatt). Das sind 28 % Rabatt insgesamt."
+relatedModes:
+  - "prozentwert"
+  - "prozentuale-veraenderung"
+  - "abzunahme"
