@@ -12,6 +12,7 @@ export interface NumberInputProps {
   suffix?: string;
   placeholder?: string;
   inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  hideLabel?: boolean;
 }
 
 export function NumberInput({
@@ -22,6 +23,7 @@ export function NumberInput({
   suffix,
   placeholder,
   inputMode = 'decimal',
+  hideLabel = false,
 }: NumberInputProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [rawValue, setRawValue] = React.useState<string>(() =>
@@ -41,10 +43,14 @@ export function NumberInput({
   };
 
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className={cn(hideLabel ? undefined : 'flex flex-col gap-1.5')}>
       <label
         htmlFor={id}
-        className="text-body-sm font-medium text-body"
+        className={cn(
+          hideLabel
+            ? 'sr-only'
+            : 'text-body-sm font-medium text-body'
+        )}
       >
         {label}
       </label>
