@@ -51,17 +51,17 @@ export function calculateRabatt(inputs: InputMap): CalculationResult {
 export const rabattMode: CalculatorMode = {
   id: 'rabatt-berechnen',
   path: '/rabatt-berechnen',
-  labelKey: 'calculator.inputs.rabatt',
+  labelKey: 'inputs.rabatt',
   inputFields: [
     {
       name: 'preis',
-      labelKey: 'calculator.inputs.preis',
+      labelKey: 'inputs.preis',
       suffix: '€',
       inputmode: 'decimal',
     },
     {
       name: 'rabatt',
-      labelKey: 'calculator.inputs.rabatt',
+      labelKey: 'inputs.rabatt',
       suffix: '%',
       inputmode: 'decimal',
     },
@@ -69,13 +69,13 @@ export const rabattMode: CalculatorMode = {
   resultLabels: [
     {
       name: 'rabatt',
-      labelKey: 'calculator.inputs.rabatt',
+      labelKey: 'inputs.rabatt',
       suffix: '€',
       isPrimary: true,
     },
     {
       name: 'endpreis',
-      labelKey: 'calculator.inputs.endpreis',
+      labelKey: 'inputs.endpreis',
       suffix: '€',
     },
   ],

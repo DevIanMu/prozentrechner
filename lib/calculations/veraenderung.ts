@@ -65,23 +65,23 @@ export function calculateVeraenderung(inputs: InputMap): CalculationResult {
 export const veraenderungMode: CalculatorMode = {
   id: 'prozentuale-veraenderung',
   path: '/prozentuale-veraenderung',
-  labelKey: 'calculator.inputs.prozentualeVeraenderung',
+  labelKey: 'inputs.prozentualeVeraenderung',
   inputFields: [
     {
       name: 'alterWert',
-      labelKey: 'calculator.inputs.alterWert',
+      labelKey: 'inputs.alterWert',
       inputmode: 'decimal',
     },
     {
       name: 'neuerWert',
-      labelKey: 'calculator.inputs.neuerWert',
+      labelKey: 'inputs.neuerWert',
       inputmode: 'decimal',
     },
   ],
   resultLabels: [
     {
       name: 'prozentualeVeraenderung',
-      labelKey: 'calculator.inputs.prozentualeVeraenderung',
+      labelKey: 'inputs.prozentualeVeraenderung',
       suffix: '%',
       isPrimary: true,
     },

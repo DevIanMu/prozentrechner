@@ -138,27 +138,27 @@ describe('mehrwertsteuerMode', () => {
     expect(mehrwertsteuerMode.id).toBe('mehrwertsteuer');
     expect(mehrwertsteuerMode.path).toBe('/mehrwertsteuer');
     expect(mehrwertsteuerMode.labelKey).toBe(
-      'calculator.inputs.mehrwertsteuer'
+      'inputs.mehrwertsteuer'
     );
     expect(mehrwertsteuerMode.inputFields[0]).toMatchObject({
       name: 'brutto',
-      labelKey: 'calculator.inputs.brutto',
+      labelKey: 'inputs.brutto',
       suffix: '€',
     });
     expect(mehrwertsteuerMode.inputFields[1]).toMatchObject({
       name: 'satz',
-      labelKey: 'calculator.inputs.satz',
+      labelKey: 'inputs.satz',
       suffix: '%',
     });
     expect(mehrwertsteuerMode.resultLabels[0]).toMatchObject({
       name: 'mwst',
-      labelKey: 'calculator.inputs.mehrwertsteuer',
+      labelKey: 'inputs.mehrwertsteuer',
       suffix: '€',
       isPrimary: true,
     });
     expect(mehrwertsteuerMode.resultLabels[1]).toMatchObject({
       name: 'netto',
-      labelKey: 'calculator.inputs.netto',
+      labelKey: 'inputs.netto',
       suffix: '€',
     });
     expect(mehrwertsteuerMode.calculate).toBe(calculateMehrwertsteuer);

@@ -96,26 +96,26 @@ describe('rabattMode', () => {
   it('uses correct labels, suffixes and calculate binding', () => {
     expect(rabattMode.id).toBe('rabatt-berechnen');
     expect(rabattMode.path).toBe('/rabatt-berechnen');
-    expect(rabattMode.labelKey).toBe('calculator.inputs.rabatt');
+    expect(rabattMode.labelKey).toBe('inputs.rabatt');
     expect(rabattMode.inputFields[0]).toMatchObject({
       name: 'preis',
-      labelKey: 'calculator.inputs.preis',
+      labelKey: 'inputs.preis',
       suffix: '€',
     });
     expect(rabattMode.inputFields[1]).toMatchObject({
       name: 'rabatt',
-      labelKey: 'calculator.inputs.rabatt',
+      labelKey: 'inputs.rabatt',
       suffix: '%',
     });
     expect(rabattMode.resultLabels[0]).toMatchObject({
       name: 'rabatt',
-      labelKey: 'calculator.inputs.rabatt',
+      labelKey: 'inputs.rabatt',
       suffix: '€',
       isPrimary: true,
     });
     expect(rabattMode.resultLabels[1]).toMatchObject({
       name: 'endpreis',
-      labelKey: 'calculator.inputs.endpreis',
+      labelKey: 'inputs.endpreis',
       suffix: '€',
     });
     expect(rabattMode.calculate).toBe(calculateRabatt);

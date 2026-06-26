@@ -87,20 +87,20 @@ describe('prozentwertMode', () => {
   it('uses correct labels, suffixes and calculate binding', () => {
     expect(prozentwertMode.id).toBe('prozentwert');
     expect(prozentwertMode.path).toBe('/prozentwert');
-    expect(prozentwertMode.labelKey).toBe('calculator.inputs.prozentwert');
+    expect(prozentwertMode.labelKey).toBe('inputs.prozentwert');
     expect(prozentwertMode.inputFields[0]).toMatchObject({
       name: 'grundwert',
-      labelKey: 'calculator.inputs.grundwert',
+      labelKey: 'inputs.grundwert',
       suffix: '€',
     });
     expect(prozentwertMode.inputFields[1]).toMatchObject({
       name: 'prozentsatz',
-      labelKey: 'calculator.inputs.prozentsatz',
+      labelKey: 'inputs.prozentsatz',
       suffix: '%',
     });
     expect(prozentwertMode.resultLabels[0]).toMatchObject({
       name: 'prozentwert',
-      labelKey: 'calculator.inputs.prozentwert',
+      labelKey: 'inputs.prozentwert',
       suffix: '€',
       isPrimary: true,
     });

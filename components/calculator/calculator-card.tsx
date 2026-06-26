@@ -121,7 +121,7 @@ export function CalculatorCard({
           <NumberInput
             key={field.name}
             id={`${mode.id}-${field.name}`}
-            label={t(`inputs.${field.labelKey}`)}
+            label={t(field.labelKey)}
             value={values[field.name] ?? null}
             onChange={(value) => handleInputChange(field.name, value)}
             suffix={field.suffix}
@@ -137,7 +137,7 @@ export function CalculatorCard({
         {mode.resultLabels.map((label) => {
           const value = resolveResultValue(label, calculation);
           const formatted = formatResultValue(value, label.suffix);
-          const labelText = t(`inputs.${label.labelKey}`);
+          const labelText = t(label.labelKey);
           return (
             <ResultField
               key={label.name}

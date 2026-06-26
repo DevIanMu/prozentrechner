@@ -100,19 +100,19 @@ describe('abzunahmeMode', () => {
   it('uses correct labels, suffixes and calculate binding', () => {
     expect(abzunahmeMode.id).toBe('abzunahme');
     expect(abzunahmeMode.path).toBe('/abzunahme');
-    expect(abzunahmeMode.labelKey).toBe('calculator.inputs.abzunahme');
+    expect(abzunahmeMode.labelKey).toBe('inputs.abzunahme');
     expect(abzunahmeMode.inputFields[0]).toMatchObject({
       name: 'ausgangswert',
-      labelKey: 'calculator.inputs.ausgangswert',
+      labelKey: 'inputs.ausgangswert',
     });
     expect(abzunahmeMode.inputFields[1]).toMatchObject({
       name: 'prozentsatz',
-      labelKey: 'calculator.inputs.prozentsatz',
+      labelKey: 'inputs.prozentsatz',
       suffix: '%',
     });
     expect(abzunahmeMode.resultLabels[0]).toMatchObject({
       name: 'ergebnis',
-      labelKey: 'calculator.inputs.ergebnis',
+      labelKey: 'inputs.ergebnis',
       isPrimary: true,
     });
     expect(abzunahmeMode.calculate).toBe(calculateAbzunahme);

@@ -54,16 +54,16 @@ export function calculateAbzunahme(inputs: InputMap): CalculationResult {
 export const abzunahmeMode: CalculatorMode = {
   id: 'abzunahme',
   path: '/abzunahme',
-  labelKey: 'calculator.inputs.abzunahme',
+  labelKey: 'inputs.abzunahme',
   inputFields: [
     {
       name: 'ausgangswert',
-      labelKey: 'calculator.inputs.ausgangswert',
+      labelKey: 'inputs.ausgangswert',
       inputmode: 'decimal',
     },
     {
       name: 'prozentsatz',
-      labelKey: 'calculator.inputs.prozentsatz',
+      labelKey: 'inputs.prozentsatz',
       suffix: '%',
       inputmode: 'decimal',
     },
@@ -71,7 +71,7 @@ export const abzunahmeMode: CalculatorMode = {
   resultLabels: [
     {
       name: 'ergebnis',
-      labelKey: 'calculator.inputs.ergebnis',
+      labelKey: 'inputs.ergebnis',
       isPrimary: true,
     },
   ],

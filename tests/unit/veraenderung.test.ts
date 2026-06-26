@@ -117,19 +117,19 @@ describe('veraenderungMode', () => {
     expect(veraenderungMode.id).toBe('prozentuale-veraenderung');
     expect(veraenderungMode.path).toBe('/prozentuale-veraenderung');
     expect(veraenderungMode.labelKey).toBe(
-      'calculator.inputs.prozentualeVeraenderung'
+      'inputs.prozentualeVeraenderung'
     );
     expect(veraenderungMode.inputFields[0]).toMatchObject({
       name: 'alterWert',
-      labelKey: 'calculator.inputs.alterWert',
+      labelKey: 'inputs.alterWert',
     });
     expect(veraenderungMode.inputFields[1]).toMatchObject({
       name: 'neuerWert',
-      labelKey: 'calculator.inputs.neuerWert',
+      labelKey: 'inputs.neuerWert',
     });
     expect(veraenderungMode.resultLabels[0]).toMatchObject({
       name: 'prozentualeVeraenderung',
-      labelKey: 'calculator.inputs.prozentualeVeraenderung',
+      labelKey: 'inputs.prozentualeVeraenderung',
       suffix: '%',
       isPrimary: true,
     });

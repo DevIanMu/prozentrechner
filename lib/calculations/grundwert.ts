@@ -59,17 +59,17 @@ export function calculateGrundwert(inputs: InputMap): CalculationResult {
 export const grundwertMode: CalculatorMode = {
   id: 'grundwert',
   path: '/grundwert',
-  labelKey: 'calculator.inputs.grundwert',
+  labelKey: 'inputs.grundwert',
   inputFields: [
     {
       name: 'prozentwert',
-      labelKey: 'calculator.inputs.prozentwert',
+      labelKey: 'inputs.prozentwert',
       suffix: '€',
       inputmode: 'decimal',
     },
     {
       name: 'prozentsatz',
-      labelKey: 'calculator.inputs.prozentsatz',
+      labelKey: 'inputs.prozentsatz',
       suffix: '%',
       inputmode: 'decimal',
     },
@@ -77,7 +77,7 @@ export const grundwertMode: CalculatorMode = {
   resultLabels: [
     {
       name: 'grundwert',
-      labelKey: 'calculator.inputs.grundwert',
+      labelKey: 'inputs.grundwert',
       suffix: '€',
       isPrimary: true,
     },

@@ -68,17 +68,17 @@ export function calculateMehrwertsteuer(inputs: InputMap): CalculationResult {
 export const mehrwertsteuerMode: CalculatorMode = {
   id: 'mehrwertsteuer',
   path: '/mehrwertsteuer',
-  labelKey: 'calculator.inputs.mehrwertsteuer',
+  labelKey: 'inputs.mehrwertsteuer',
   inputFields: [
     {
       name: 'brutto',
-      labelKey: 'calculator.inputs.brutto',
+      labelKey: 'inputs.brutto',
       suffix: '€',
       inputmode: 'decimal',
     },
     {
       name: 'satz',
-      labelKey: 'calculator.inputs.satz',
+      labelKey: 'inputs.satz',
       suffix: '%',
       inputmode: 'decimal',
     },
@@ -86,13 +86,13 @@ export const mehrwertsteuerMode: CalculatorMode = {
   resultLabels: [
     {
       name: 'mwst',
-      labelKey: 'calculator.inputs.mehrwertsteuer',
+      labelKey: 'inputs.mehrwertsteuer',
       suffix: '€',
       isPrimary: true,
     },
     {
       name: 'netto',
-      labelKey: 'calculator.inputs.netto',
+      labelKey: 'inputs.netto',
       suffix: '€',
     },
   ],

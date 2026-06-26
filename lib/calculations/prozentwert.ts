@@ -48,17 +48,17 @@ export function calculateProzentwert(inputs: InputMap): CalculationResult {
 export const prozentwertMode: CalculatorMode = {
   id: 'prozentwert',
   path: '/prozentwert',
-  labelKey: 'calculator.inputs.prozentwert',
+  labelKey: 'inputs.prozentwert',
   inputFields: [
     {
       name: 'grundwert',
-      labelKey: 'calculator.inputs.grundwert',
+      labelKey: 'inputs.grundwert',
       suffix: '€',
       inputmode: 'decimal',
     },
     {
       name: 'prozentsatz',
-      labelKey: 'calculator.inputs.prozentsatz',
+      labelKey: 'inputs.prozentsatz',
       suffix: '%',
       inputmode: 'decimal',
     },
@@ -66,7 +66,7 @@ export const prozentwertMode: CalculatorMode = {
   resultLabels: [
     {
       name: 'prozentwert',
-      labelKey: 'calculator.inputs.prozentwert',
+      labelKey: 'inputs.prozentwert',
       suffix: '€',
       isPrimary: true,
     },
