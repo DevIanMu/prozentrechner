@@ -20,6 +20,9 @@
     "showMore": "Mehr anzeigen",
     "showLess": "Weniger anzeigen",
     "formula": "Formel",
+    "relatedCalculators": {
+      "title": "Verwandte Rechner"
+    },
     "steps": "Schritt für Schritt",
     "stepsPlaceholder": "Gib alle Werte ein, um den Rechenweg zu sehen.",
     "tip": "Tipp",
