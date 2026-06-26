@@ -26,7 +26,20 @@
     "inputs": {
       "grundwert": "Grundwert",
       "prozentsatz": "Prozentsatz",
-      "prozentwert": "Prozentwert"
+      "prozentwert": "Prozentwert",
+      "preis": "Preis",
+      "rabatt": "Rabatt",
+      "endpreis": "Endpreis",
+      "brutto": "Bruttopreis",
+      "satz": "Steuersatz",
+      "mehrwertsteuer": "Mehrwertsteuer",
+      "netto": "Nettopreis",
+      "alterWert": "Alter Wert",
+      "neuerWert": "Neuer Wert",
+      "veraenderung": "Veränderung",
+      "ausgangswert": "Ausgangswert",
+      "aenderung": "Änderung",
+      "ergebnis": "Ergebnis"
     }
   },
   "errors": {

@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export type InputMap = Record<string, number | null>;
 
 export interface CalculationStep {
@@ -20,7 +22,7 @@ export interface InputField {
   name: string;
   labelKey: string;
   suffix?: string;
-  inputmode?: string;
+  inputmode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
   placeholder?: string;
 }
 
