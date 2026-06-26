@@ -26,6 +26,11 @@
     "faq": {
       "title": "Häufig gestellte Fragen"
     },
+    "quiz": {
+      "correct": "Richtig!",
+      "incorrect": "Leider falsch.",
+      "explanation": "Erklärung"
+    },
     "steps": "Schritt für Schritt",
     "stepsPlaceholder": "Gib alle Werte ein, um den Rechenweg zu sehen.",
     "tip": "Tipp",
