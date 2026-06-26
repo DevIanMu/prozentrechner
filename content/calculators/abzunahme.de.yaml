@@ -1,0 +1,52 @@
+mode: abzunahme
+metaTitle: "Ab-/Zunahme berechnen — Kostenloser Online-Rechner"
+metaDescription: "Berechne den neuen Wert nach einer prozentualen Ab- oder Zunahme mit der Formel E = G × (1 + p / 100)."
+h1: "Ab-/Zunahme berechnen"
+intro: "Der Ab-/Zunahme-Rechner ermittelt den neuen Endwert, wenn ein Ausgangswert um einen bestimmten Prozentsatz steigt oder fällt. Gib Ausgangswert und Prozentsatz ein — das Ergebnis erscheint sofort."
+formulaGeneral: "E = G \\times \\left(1 + \\frac{p}{100}\\right)"
+educationTitle: "Wie berechnet man Ab-/Zunahme?"
+educationText: |
+  Bei einer Ab- oder Zunahme wird ein Ausgangswert (G) um einen bestimmten Prozentsatz (p) verändert. Das Ergebnis (E) ist der neue Wert nach der Veränderung.
+
+  Die klassische Aufgabenstellung lautet: „Ein Preis von 200 € erhöht sich um 15 %. Wie hoch ist der neue Preis?“ Hier ist 200 € der Ausgangswert (G), 15 % der Prozentsatz (p) und der gesuchte Endwert 230 €.
+
+  Die Formel lautet: E = G × (1 + p / 100). Der Ausdruck (1 + p / 100) wird Veränderungsfaktor genannt. Bei einer Zunahme ist er größer als 1, bei einer Abnahme kleiner als 1.
+
+  Typische Anwendungen sind Preiserhöhungen, Lohnerhöhungen, Wertverluste oder Zinsen. Ein positiver Prozentsatz erhöht den Wert, ein negativer Prozentsatz verringert ihn.
+
+tip: "Erhöhung um 10 % bedeutet Faktor 1,10. Senkung um 10 % bedeutet Faktor 0,90."
+warningTip: "Achtung: Ein negativer Prozentsatz verringert den Wert. −25 % bedeutet eine Abnahme um ein Viertel, nicht eine Zunahme."
+faq:
+  - question: "Was ist der Veränderungsfaktor?"
+    answer: "Der Veränderungsfaktor ist 1 + p / 100. Bei 15 % Zunahme ist er 1,15, bei 10 % Abnahme 0,90."
+  - question: "Wie berechne ich 200 € erhöht um 15 %?"
+    answer: "200 € × (1 + 15 / 100) = 200 € × 1,15 = 230 €."
+  - question: "Wie berechne ich 200 € verringert um 20 %?"
+    answer: "200 € × (1 − 20 / 100) = 200 € × 0,80 = 160 €."
+  - question: "Kann ich negative Prozentsätze eingeben?"
+    answer: "Ja, negative Werte stehen für eine Abnahme. −10 % berechnet eine Verringerung um 10 %."
+  - question: "Was passiert bei 0 % Veränderung?"
+    answer: "Der Endwert ist gleich dem Ausgangswert. Der Veränderungsfaktor beträgt 1."
+  - question: "Wie berechne ich mehrere Ab-/Zunahmen hintereinander?"
+    answer: "Multipliziere die Veränderungsfaktoren. Eine Erhöhung um 10 % und dann um 20 % ergibt 1,10 × 1,20 = 1,32, also 32 % insgesamt."
+quiz:
+  - question: "100 € erhöht um 10 %. Wie hoch ist der Endwert?"
+    options: ["105 €", "110 €", "115 €", "120 €"]
+    correctIndex: 1
+    explanation: "100 € × (1 + 10 / 100) = 100 € × 1,10 = 110 €."
+  - question: "Welche Formel berechnet den Endwert nach einer Ab-/Zunahme?"
+    options: ["E = G × (1 + p / 100)", "E = G + p", "E = G × p / 100", "E = G − p"]
+    correctIndex: 0
+    explanation: "Der Endwert ergibt sich aus dem Ausgangswert multipliziert mit dem Veränderungsfaktor."
+  - question: "250 € verringert um 20 %. Wie hoch ist der Endwert?"
+    options: ["200 €", "210 €", "225 €", "230 €"]
+    correctIndex: 0
+    explanation: "250 € × (1 − 20 / 100) = 250 € × 0,80 = 200 €."
+  - question: "Ein Wert steigt um 50 %. Um welchen Faktor wird er multipliziert?"
+    options: ["0,50", "1,05", "1,50", "2,00"]
+    correctIndex: 2
+    explanation: "1 + 50 / 100 = 1,50."
+relatedModes:
+  - "prozentuale-veraenderung"
+  - "prozentwert"
+  - "rabatt-berechnen"
