@@ -25,6 +25,7 @@ export const CALCULATOR_CONTENT_SCHEMA = z.object({
   educationTitle: z.string().min(1),
   educationText: z.string().min(1),
   tip: z.string().min(1),
+  warningTip: z.string().min(1).optional(),
   faq: z.array(FAQ_SCHEMA).min(1),
   quiz: z.array(QUIZ_SCHEMA).min(1),
   relatedModes: z.array(z.string().min(1)).min(1),
