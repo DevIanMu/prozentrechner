@@ -43,6 +43,66 @@
       "responsiblePerson": "[Name der verantwortlichen Person]"
     }
   },
+  "datenschutz": {
+    "metaTitle": "Datenschutz — ProzentRechner",
+    "metaDescription": "Datenschutzerklärung von ProzentRechner: Informationen zur Datenverarbeitung, localStorage, Google Analytics 4 und Usercentrics.",
+    "title": "Datenschutz",
+    "placeholderNotice": "Die folgenden Angaben sind Platzhalter und müssen vor dem Launch durch die korrekten Daten ersetzt werden.",
+    "sections": {
+      "scope": "Geltungsbereich",
+      "responsible": "Verantwortlicher",
+      "serverLogs": "Automatisch erfasste Daten",
+      "localStorage": "Berechnungsverlauf im Browser",
+      "googleAnalytics": "Google Analytics 4",
+      "usercentrics": "Consent-Management mit Usercentrics",
+      "noPii": "Keine Speicherung personenbezogener Daten im Verlauf",
+      "userRights": "Deine Rechte",
+      "contact": "Kontakt zum Datenschutz",
+      "legalReview": "Hinweis zur rechtlichen Prüfung"
+    },
+    "scopeText": [
+      "Diese Datenschutzerklärung beschreibt, welche Daten beim Besuch und bei der Nutzung von ProzentRechner anfallen und wie wir sie verarbeiten. Sie gilt für die Website prozentrechner.de und alle darunter erreichbaren Unterseiten."
+    ],
+    "responsibleText": [
+      "Verantwortlicher für die Datenverarbeitung auf dieser Website ist:"
+    ],
+    "serverLogsText": [
+      "Beim Aufruf unserer Website werden technisch bedingt bestimmte Daten übermittelt und in Server-Logdateien gespeichert. Dies betrifft in der Regel die IP-Adresse, den Browsertyp, das Betriebssystem, die Referrer-URL, den Zeitpunkt der Anfrage und ähnliche technische Informationen.",
+      "Diese Daten sind für den sicheren Betrieb der Website erforderlich und werden nicht dazu genutzt, dich persönlich zu identifizieren."
+    ],
+    "localStorageText": [
+      "Dein Berechnungsverlauf wird ausschließlich lokal im Browser gespeichert (localStorage).",
+      "Die Daten verlassen dein Endgerät nicht und werden nicht an unsere Server oder Dritte übermittelt. Du kannst den Verlauf jederzeit in der Anwendung löschen."
+    ],
+    "googleAnalyticsText": [
+      "Wir nutzen Google Analytics 4, um die Nutzung unserer Website zu verstehen und kontinuierlich zu verbessern.",
+      "Google Analytics wird erst nach deiner ausdrücklichen Einwilligung in die Kategorie „Statistik“ geladen. Die Verarbeitung erfolgt dann unter Verwendung von Cookies oder vergleichbaren Technologien durch Google Ireland Ltd. bzw. Google LLC.",
+      "Du kannst deine Einwilligung über das Consent-Banner jederzeit widerrufen oder nachträglich anpassen."
+    ],
+    "usercentricsText": [
+      "Zur Einholung, Speicherung und Verwaltung deiner Einwilligungen verwenden wir die Consent-Management-Plattform Usercentrics.",
+      "Über das Einwilligungsbanner kannst du festlegen, welche Technologien zugelassen werden und deine Entscheidung später ändern."
+    ],
+    "noPiiText": [
+      "Der Berechnungsverlauf enthält keine personenbezogenen Daten wie Name, E-Mail-Adresse, Adresse oder Standort.",
+      "Es werden ausschließlich die von dir eingegebenen Zahlenwerte und das dazugehörige Ergebnis lokal im Browser gespeichert."
+    ],
+    "userRightsText": [
+      "Dir stehen nach der DSGVO verschiedene Rechte zu, darunter das Recht auf Auskunft über die bei uns verarbeiteten Daten, das Recht auf Berichtigung, Löschung oder Einschränkung der Verarbeitung, das Recht auf Datenübertragbarkeit sowie das Recht auf Widerspruch gegen die Verarbeitung.",
+      "Zur Ausübung deiner Rechte kannst du dich jederzeit an den unter „Kontakt zum Datenschutz“ genannten Ansprechpartner wenden."
+    ],
+    "contactText": [
+      "Bei Fragen zum Datenschutz erreichst du uns unter folgender E-Mail-Adresse:"
+    ],
+    "legalReviewText": [
+      "Diese Datenschutzerklärung wurde als Entwurf erstellt. Vor dem Launch muss sie von einer datenschutzrechtlich versierten Fachkraft geprüft und an die tatsächlich eingesetzten Dienste angepasst werden."
+    ],
+    "placeholders": {
+      "responsibleParty": "[Name und vollständige Anschrift des Verantwortlichen]",
+      "email": "[datenschutz@beispiel.de]",
+      "hostingProvider": "[Name und Anschrift des Hosting-Anbieters]"
+    }
+  },
   "nav": {
     "home": "Startseite",
     "prozentwert": "Prozentwert",
