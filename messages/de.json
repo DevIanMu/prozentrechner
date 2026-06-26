@@ -3,6 +3,25 @@
     "title": "ProzentRechner",
     "description": "Kostenloser Online-Prozentrechner"
   },
+  "home": {
+    "heroTitle": "ProzentRechner — Kostenlos & Online",
+    "heroSubtitle": "Berechne Prozente, Rabatte, Mehrwertsteuer und mehr. Mit Rechenweg, Erklärungen und Quiz.",
+    "differentiatorTitle": "Warum ProzentRechner?",
+    "differentiators": [
+      { "title": "Sofortige Ergebnisse", "description": "Tippe ein und sieh sofort das Ergebnis — ganz ohne Berechnungsknopf." },
+      { "title": "Mit Rechenweg", "description": "Jeder Rechner zeigt die Formel und jeden Zwischenschritt verständlich an." },
+      { "title": "Lernen & Üben", "description": "FAQ, Erklärungen und interaktive Quizfragen helfen dir, Prozentrechnung zu verstehen." }
+    ],
+    "allCalculatorsTitle": "Alle Prozentrechner",
+    "educationTitle": "Prozentrechnung verstehen",
+    "educationText": "Prozentrechnung ist eine der nützlichsten Grundlagen der Mathematik im Alltag. Sie hilft dir, Rabatte beim Einkaufen zu vergleichen, Mehrwertsteuer zu verstehen, Veränderungen zu erkennen und Anteile korrekt einzuschätzen.\n\nEin Prozent bedeutet „von Hundert“. Wenn du 20 % von 500 € berechnen möchtest, multiplizierst du 500 mit 20 und teilst das Ergebnis durch 100. Der Rechenweg ist dabei genauso wichtig wie das Ergebnis, denn er zeigt dir, warum eine bestimmte Zahl herauskommt.\n\nAuf ProzentRechner findest du für jede gängige Aufgabe einen passenden Rechner: Prozentwert, Prozentsatz, Grundwert, prozentuale Veränderung, Rabatt, Mehrwertsteuer und Ab- bzw. Zunahme. Jeder Rechner arbeitet live, zeigt die Formel und erklärt die Berechnung Schritt für Schritt.",
+    "faq": [
+      { "question": "Was bedeutet Prozent?", "answer": "Prozent bedeutet 'pro Hundert' und drückt einen Anteil von 100 aus. 50 % entsprechen also der Hälfte, 100 % dem Ganzen." },
+      { "question": "Wie rechnet man Prozente?", "answer": "Der Prozentwert ergibt sich aus Grundwert mal Prozentsatz geteilt durch 100. Aus 500 € Grundwert und 20 % Prozentsatz werden somit 100 € Prozentwert." },
+      { "question": "Was ist der Unterschied zwischen Prozentwert und Prozentsatz?", "answer": "Der Prozentsatz gibt den Anteil in Hundertsteln an, der Prozentwert den dazugehörigen absoluten Betrag. Bei 20 % von 500 € ist 20 % der Prozentsatz und 100 € der Prozentwert." },
+      { "question": "Wie berechne ich Rabatte?", "answer": "Rabatt = Preis mal Rabattprozentsatz geteilt durch 100. Ein Rabatt von 20 % auf 70 € beträgt 14 €, der Endpreis liegt also bei 56 €." }
+    ]
+  },
   "nav": {
     "home": "Startseite",
     "prozentwert": "Prozentwert",
