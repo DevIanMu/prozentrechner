@@ -1,0 +1,45 @@
+mode: mehrwertsteuer
+metaTitle: "Mehrwertsteuer berechnen — Kostenloser Online-Rechner"
+metaDescription: "Zerlege Bruttopreise in Netto und Mehrwertsteuer. Mit 19 %, 7 %, 20 % und 8,1 % Steuersatz."
+h1: "Mehrwertsteuer berechnen"
+intro: "Der Mehrwertsteuer-Rechner zerlegt einen Bruttopreis in den Nettobetrag und die enthaltene Mehrwertsteuer. Wähle den passenden Steuersatz und gib den Bruttopreis ein."
+formulaGeneral: "MwSt = brutto \\times \\frac{satz}{100 + satz}"
+educationTitle: "Wie berechnet man die Mehrwertsteuer?"
+educationText: |
+  Die Mehrwertsteuer ist in Deutschland im Allgemeinen 19 %, für reduzierte Güter wie Lebensmittel oder Bücher 7 %. In Österreich beträgt der Normalsatz 20 %, in der Schweiz 8,1 %.
+
+  Die Formel, um die im Bruttopreis enthaltene Mehrwertsteuer zu ermitteln, lautet: MwSt = brutto × satz / (100 + satz).
+
+  Ein Beispiel: Ein Bruttopreis von 119 € bei 19 % MwSt ergibt 119 × 19 / 119 = 19 € MwSt. Der Nettobetrag ist 119 € − 19 € = 100 €.
+
+  Achtung: Manche Rechnungen zeigen den Nettobetrag und addieren dann die MwSt. Brutto bedeutet aber bereits inklusive Steuer. Rechnest du auf den Bruttopreis hoch, ist die enthaltene MwSt niedriger, als wenn du den Nettobetrag einfach mit dem Satz multiplizierst.
+tip: "Der Steuersatz lässt sich jederzeit ändern — praktisch für Rechnungen aus Deutschland, Österreich oder der Schweiz."
+warningTip: "MwSt.-Falle: Bei einem Bruttopreis ist die enthaltene MwSt nicht gleich Brutto × Satz, sondern Brutto × Satz / (100 + Satz)."
+faq:
+  - question: "Wie viel MwSt. sind in 119 € bei 19 %?"
+    answer: "119 € × 19 / 119 = 19 € MwSt. Der Nettobetrag beträgt 100 €."
+  - question: "Welcher Steuersatz gilt in Deutschland?"
+    answer: "Der allgemeine Steuersatz beträgt 19 %. Für bestimmte Güter wie Lebensmittel, Bücher und Zeitungen gilt der ermäßigte Satz von 7 %."
+  - question: "Was ist der Unterschied zwischen Brutto und Netto?"
+    answer: "Brutto ist der Preis inklusive Mehrwertsteuer. Netto ist der Preis ohne Mehrwertsteuer."
+  - question: "Wie hoch ist die MwSt. in Österreich und der Schweiz?"
+    answer: "In Österreich beträgt der Normalsatz 20 %. In der Schweiz beträgt die Mehrwertsteuer 8,1 %."
+  - question: "Warum muss ich durch (100 + Satz) teilen?"
+    answer: "Weil der Bruttopreis bereits die Steuer enthält. 119 € entsprechen 100 % Netto + 19 % MwSt., also 119 %. Daher teilt man durch 119."
+quiz:
+  - question: "Wie viel MwSt. sind in 107 € bei 7 %?"
+    options: ["6 €", "7 €", "7,49 €", "8 €"]
+    correctIndex: 1
+    explanation: "107 € × 7 / 107 = 7 € MwSt."
+  - question: "Ein Bruttopreis von 120 € enthält bei 20 % MwSt. wie viel Netto?"
+    options: ["96 €", "100 €", "104 €", "110 €"]
+    correctIndex: 1
+    explanation: "120 € / 1,20 = 100 € Netto."
+  - question: "Welche Formel berechnet die MwSt. aus dem Bruttopreis?"
+    options: ["brutto × satz / 100", "brutto × satz / (100 + satz)", "brutto / satz", "brutto − satz"]
+    correctIndex: 1
+    explanation: "Da der Bruttopreis die Steuer bereits enthält, muss man durch (100 + Satz) teilen."
+relatedModes:
+  - "prozentwert"
+  - "rabatt-berechnen"
+  - "abzunahme"

@@ -59,6 +59,15 @@ function resolveResultValue(
   return null;
 }
 
+const TAX_RATE_OPTIONS = [
+  { value: 19, label: '19 %' },
+  { value: 7, label: '7 %' },
+  { value: 20, label: '20 %' },
+  { value: 8.1, label: '8,1 %' },
+];
+
+const DEFAULT_TAX_RATE = 19;
+
 export function CalculatorCard({
   mode,
   values,
@@ -92,6 +101,12 @@ export function CalculatorCard({
     addHistoryEntry(mode.id, inputs, debouncedCalculation.primaryResult);
   }, [debouncedCalculation, mode]);
 
+  React.useEffect(() => {
+    if (mode.id === 'mehrwertsteuer' && values.satz === null) {
+      onChange({ ...values, satz: DEFAULT_TAX_RATE });
+    }
+  }, [mode.id, values, onChange]);
+
   const handleInputChange = (name: string, value: number | null) => {
     onChange({ ...values, [name]: value });
   };
@@ -117,18 +132,51 @@ export function CalculatorCard({
       )}
 
       <div className="space-y-5">
-        {mode.inputFields.map((field) => (
-          <NumberInput
-            key={field.name}
-            id={`${mode.id}-${field.name}`}
-            label={t(field.labelKey)}
-            value={values[field.name] ?? null}
-            onChange={(value) => handleInputChange(field.name, value)}
-            suffix={field.suffix}
-            placeholder={field.placeholder}
-            inputMode={field.inputmode}
-          />
-        ))}
+        {mode.id === 'mehrwertsteuer' && (
+          <div className="flex flex-col gap-1.5">
+            <label
+              htmlFor={`${mode.id}-satz`}
+              className="text-body-sm font-medium text-body"
+            >
+              {t('inputs.satz')}
+            </label>
+            <select
+              id={`${mode.id}-satz`}
+              value={values.satz ?? DEFAULT_TAX_RATE}
+              onChange={(event) =>
+                handleInputChange('satz', Number(event.target.value))
+              }
+              className={cn(
+                'h-10 w-full rounded-md border border-hairline bg-canvas px-3 py-2',
+                'text-body-md text-ink',
+                'focus:border-ink focus:outline-none'
+              )}
+            >
+              {TAX_RATE_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {mode.inputFields
+          .filter(
+            (field) =>
+              !(mode.id === 'mehrwertsteuer' && field.name === 'satz')
+          )
+          .map((field) => (
+            <NumberInput
+              key={field.name}
+              id={`${mode.id}-${field.name}`}
+              label={t(field.labelKey)}
+              value={values[field.name] ?? null}
+              onChange={(value) => handleInputChange(field.name, value)}
+              suffix={field.suffix}
+              placeholder={field.placeholder}
+              inputMode={field.inputmode}
+            />
+          ))}
       </div>
 
       <hr className="my-6 border-hairline-soft" />
