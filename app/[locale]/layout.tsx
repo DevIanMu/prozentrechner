@@ -53,6 +53,16 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <link rel="dns-prefetch" href="https://app.usercentrics.eu" />
+        <link rel="preconnect" href="https://app.usercentrics.eu" crossOrigin="anonymous" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.write(\`<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" as="style" onload="this.rel='stylesheet'" />\`);`,
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" />
+        </noscript>
         <UsercentricsScript />
         <GA4Script />
       </head>
