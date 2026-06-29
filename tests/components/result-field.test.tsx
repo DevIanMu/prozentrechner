@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NextIntlClientProvider } from 'next-intl';
@@ -17,6 +17,10 @@ function renderWithIntl(ui: React.ReactNode) {
 describe('ResultField', () => {
   beforeEach(() => {
     vi.spyOn(analytics, 'sendCopyResultEvent').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
   });
   it('renders label and value', () => {
     renderWithIntl(

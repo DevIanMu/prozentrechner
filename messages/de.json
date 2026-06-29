@@ -134,6 +134,10 @@
     },
     "steps": "Rechenweg Schritt für Schritt",
     "stepsPlaceholder": "Gib alle Werte ein, um den Rechenweg zu sehen.",
+    "explanation": {
+      "expandCalculation": "Berechnung ausklappen, Formel: {formula}, Ergebnis: {result}",
+      "expandCalculationNoResult": "Berechnung ausklappen, Formel: {formula}"
+    },
     "tip": "Tipp",
     "inputs": {
       "grundwert": "Grundwert",

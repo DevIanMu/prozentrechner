@@ -13,6 +13,7 @@ describe('FormulaBlock', () => {
 
     const formula = container.querySelector('[aria-hidden="true"]');
     expect(formula).toBeInTheDocument();
+    expect(formula).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('falls back to the raw latex string when no description is provided', () => {

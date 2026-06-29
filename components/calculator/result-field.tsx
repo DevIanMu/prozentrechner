@@ -20,6 +20,21 @@ export function ResultField({ label, value, copyText, mode }: ResultFieldProps) 
   const t = useTranslations('calculator');
   const [showCopied, setShowCopied] = React.useState(false);
 
+  React.useEffect(() => {
+    if (!showCopied) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(
+      () => setShowCopied(false),
+      COPY_FEEDBACK_MS
+    );
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [showCopied]);
+
   const handleCopy = async () => {
     if (typeof navigator === 'undefined' || !navigator.clipboard) {
       return;
@@ -35,7 +50,6 @@ export function ResultField({ label, value, copyText, mode }: ResultFieldProps) 
       sendCopyResultEvent(mode);
     }
     setShowCopied(true);
-    window.setTimeout(() => setShowCopied(false), COPY_FEEDBACK_MS);
   };
 
   return (

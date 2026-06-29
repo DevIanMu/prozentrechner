@@ -33,6 +33,7 @@ export function ExplanationPanel({
   onToggleCompact,
 }: ExplanationPanelProps) {
   const t = useTranslations('calculator');
+  const tExplanation = useTranslations('calculator.explanation');
   const [stepsExpanded, setStepsExpanded] = React.useState(false);
 
   const hasValidResult = result.primaryResult !== null;
@@ -43,11 +44,22 @@ export function ExplanationPanel({
     : result.steps.slice(0, 3);
   const hasMoreSteps = result.steps.length > 3;
 
+  const compactLabel = hasValidResult
+    ? tExplanation('expandCalculation', {
+        formula: latexToPlainText(generalFormula),
+        result: primaryResultFormatted,
+      })
+    : tExplanation('expandCalculationNoResult', {
+        formula: latexToPlainText(generalFormula),
+      });
+
   if (compact) {
     return (
       <button
         type="button"
         onClick={onToggleCompact}
+        aria-expanded={!compact}
+        aria-label={compactLabel}
         className={cn(
           'w-full rounded-lg border border-hairline bg-surface-card p-4 text-left',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
@@ -106,6 +118,7 @@ export function ExplanationPanel({
               <button
                 type="button"
                 onClick={() => setStepsExpanded((prev) => !prev)}
+                aria-expanded={stepsExpanded}
                 className="mt-3 text-body-sm text-brand-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 {stepsExpanded ? t('showLess') : t('showMore')}
