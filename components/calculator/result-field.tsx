@@ -43,6 +43,9 @@ export function ResultField({ label, value, copyText, mode }: ResultFieldProps) 
       <div className="text-title-sm text-body">{label}</div>
       <div className="flex items-center gap-2">
         <div
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
           className={cn(
             'flex h-10 flex-1 items-center rounded-md border border-hairline bg-canvas px-3 py-2',
             'text-title-lg text-ink'

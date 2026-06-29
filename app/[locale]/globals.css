@@ -34,6 +34,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2;
+  }
 }
 
 /* Hide site chrome and interactive bands; keep only the desktop explanation panel visible. */

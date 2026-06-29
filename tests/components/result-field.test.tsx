@@ -27,6 +27,25 @@ describe('ResultField', () => {
     expect(screen.getByText('100,00 €')).toBeInTheDocument();
   });
 
+  it('announces result changes via a polite live region', () => {
+    const { rerender } = renderWithIntl(
+      <ResultField label="Prozentwert" value="-" />
+    );
+
+    const status = screen.getByRole('status');
+    expect(status).toHaveAttribute('aria-live', 'polite');
+    expect(status).toHaveAttribute('aria-atomic', 'true');
+    expect(status).toHaveTextContent('-');
+
+    rerender(
+      <NextIntlClientProvider messages={messages} locale="de">
+        <ResultField label="Prozentwert" value="100,00 €" />
+      </NextIntlClientProvider>
+    );
+
+    expect(status).toHaveTextContent('100,00 €');
+  });
+
   it('copies copyText to clipboard when copy button is clicked', async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
     Object.assign(navigator, {

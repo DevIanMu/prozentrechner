@@ -74,7 +74,10 @@ export function ExplanationPanel({
       <div>
         <h3 className="text-title-md text-ink">{t('formula')}</h3>
         <div className="mt-3">
-          <FormulaBlock latex={generalFormula} />
+          <FormulaBlock
+            latex={generalFormula}
+            description={latexToPlainText(generalFormula)}
+          />
         </div>
         {hasValidResult && result.formulaWithValues && (
           <div className="mt-3 rounded-md border border-hairline bg-canvas p-4 text-body-md text-ink">
