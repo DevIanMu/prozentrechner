@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { TopNav } from '@/components/layout/top-nav';
 import Footer from '@/components/layout/footer';
+import { UsercentricsScript } from '@/components/consent/usercentrics-script';
 import { buildCanonicalUrl } from '@/lib/navigation';
 import './globals.css';
 
@@ -50,6 +51,9 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <UsercentricsScript />
+      </head>
       <body className="font-sans antialiased bg-canvas text-ink">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <TopNav />
