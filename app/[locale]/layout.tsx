@@ -6,6 +6,7 @@ import { TopNav } from '@/components/layout/top-nav';
 import Footer from '@/components/layout/footer';
 import { UsercentricsScript } from '@/components/consent/usercentrics-script';
 import { GA4Script } from '@/components/analytics/ga4-script';
+import { KaTeXPreload } from '@/components/katex-preload';
 import { buildCanonicalUrl } from '@/lib/navigation';
 import './globals.css';
 
@@ -55,14 +56,7 @@ export default async function LocaleLayout({
       <head>
         <link rel="dns-prefetch" href="https://app.usercentrics.eu" />
         <link rel="preconnect" href="https://app.usercentrics.eu" crossOrigin="anonymous" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.write(\`<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" as="style" onload="this.rel='stylesheet'" />\`);`,
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" />
-        </noscript>
+        <KaTeXPreload />
         <UsercentricsScript />
         <GA4Script />
       </head>
