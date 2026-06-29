@@ -4,6 +4,13 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/de/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
