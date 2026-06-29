@@ -10,7 +10,7 @@ import { buildCanonicalUrl } from '@/lib/navigation';
 import './globals.css';
 
 const KATEX_CSS = 'https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css';
-const KATEX_CSS_INTEGRITY = 'sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb';
+const KATEX_CSS_INTEGRITY = 'sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB';
 
 const inter = localFont({
   src: '../fonts/Inter-latin.woff2',
