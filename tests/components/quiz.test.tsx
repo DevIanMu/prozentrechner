@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NextIntlClientProvider } from 'next-intl';
 import { Quiz } from '@/components/quiz';
 import messages from '@/messages/de.json';
 import type { Quiz as QuizType } from '@/lib/content';
+import * as analytics from '@/lib/analytics';
 
 function renderWithIntl(ui: React.ReactNode) {
   return render(
@@ -24,6 +25,9 @@ const items: QuizType[] = [
 ];
 
 describe('Quiz', () => {
+  beforeEach(() => {
+    vi.spyOn(analytics, 'sendQuizAnswerEvent').mockImplementation(() => {});
+  });
   it('returns null when items is empty', () => {
     const { container } = renderWithIntl(<Quiz items={[]} />);
     expect(container.firstChild).toBeNull();
@@ -39,7 +43,7 @@ describe('Quiz', () => {
   });
 
   it('shows success indicator and explanation when the correct option is selected', async () => {
-    renderWithIntl(<Quiz items={items} />);
+    renderWithIntl(<Quiz items={items} mode="prozentwert" />);
 
     await userEvent.click(screen.getByLabelText('20'));
 
@@ -50,7 +54,7 @@ describe('Quiz', () => {
   });
 
   it('shows failure indicator and explanation when a wrong option is selected', async () => {
-    renderWithIntl(<Quiz items={items} />);
+    renderWithIntl(<Quiz items={items} mode="prozentwert" />);
 
     await userEvent.click(screen.getByLabelText('10'));
 
@@ -61,7 +65,7 @@ describe('Quiz', () => {
   });
 
   it('keeps the correct option interactive after selecting a wrong option', async () => {
-    renderWithIntl(<Quiz items={items} />);
+    renderWithIntl(<Quiz items={items} mode="prozentwert" />);
 
     await userEvent.click(screen.getByLabelText('10'));
 
@@ -73,5 +77,25 @@ describe('Quiz', () => {
 
     expect(screen.getByText('Richtig!')).toBeInTheDocument();
     expect(screen.getByTestId('quiz-live-region')).toHaveTextContent('Richtig!');
+  });
+
+  it('sends an analytics event with correctness when an answer is selected', async () => {
+    renderWithIntl(<Quiz items={items} mode="prozentwert" />);
+
+    await userEvent.click(screen.getByLabelText('20'));
+
+    expect(analytics.sendQuizAnswerEvent).toHaveBeenCalledWith(
+      'prozentwert',
+      0,
+      true
+    );
+  });
+
+  it('does not send an analytics event when mode is omitted', async () => {
+    renderWithIntl(<Quiz items={items} />);
+
+    await userEvent.click(screen.getByLabelText('20'));
+
+    expect(analytics.sendQuizAnswerEvent).not.toHaveBeenCalled();
   });
 });

@@ -5,16 +5,18 @@ import { useTranslations } from 'next-intl';
 import { Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { sendCopyResultEvent } from '@/lib/analytics';
 
 export interface ResultFieldProps {
   label: React.ReactNode;
   value: string;
   copyText?: string;
+  mode?: string;
 }
 
 const COPY_FEEDBACK_MS = 2000;
 
-export function ResultField({ label, value, copyText }: ResultFieldProps) {
+export function ResultField({ label, value, copyText, mode }: ResultFieldProps) {
   const t = useTranslations('calculator');
   const [showCopied, setShowCopied] = React.useState(false);
 
@@ -29,6 +31,9 @@ export function ResultField({ label, value, copyText }: ResultFieldProps) {
     }
 
     await navigator.clipboard.writeText(text);
+    if (mode) {
+      sendCopyResultEvent(mode);
+    }
     setShowCopied(true);
     window.setTimeout(() => setShowCopied(false), COPY_FEEDBACK_MS);
   };

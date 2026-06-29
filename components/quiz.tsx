@@ -4,9 +4,11 @@ import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { Check, X } from 'lucide-react';
 import type { Quiz } from '@/lib/content';
+import { sendQuizAnswerEvent } from '@/lib/analytics';
 
 export interface QuizProps {
   items: Quiz[];
+  mode?: string;
 }
 
 interface QuizState {
@@ -14,7 +16,7 @@ interface QuizState {
   isCorrect: boolean | null;
 }
 
-export function Quiz({ items }: QuizProps) {
+export function Quiz({ items, mode }: QuizProps) {
   const t = useTranslations('calculator');
   const [answers, setAnswers] = React.useState<Record<number, QuizState>>({});
 
@@ -32,13 +34,18 @@ export function Quiz({ items }: QuizProps) {
   }, [answers, items, t]);
 
   const handleSelect = (itemIndex: number, optionIndex: number, correctIndex: number) => {
+    const isCorrect = optionIndex === correctIndex;
     setAnswers((prev) => ({
       ...prev,
       [itemIndex]: {
         selectedIndex: optionIndex,
-        isCorrect: optionIndex === correctIndex,
+        isCorrect,
       },
     }));
+
+    if (mode) {
+      sendQuizAnswerEvent(mode, itemIndex, isCorrect);
+    }
   };
 
   if (items.length === 0) {

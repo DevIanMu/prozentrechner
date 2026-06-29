@@ -8,6 +8,7 @@ import { ResultField } from '@/components/calculator/result-field';
 import { HistoryDrawer } from '@/components/calculator/history-drawer';
 import { useDebounce } from '@/lib/hooks/use-debounce';
 import { addHistoryEntry, getHistory } from '@/lib/history';
+import { sendCalculateEvent } from '@/lib/analytics';
 import {
   formatCurrency,
   formatPercent,
@@ -99,6 +100,7 @@ export function CalculatorCard({
     }
 
     addHistoryEntry(mode.id, inputs, debouncedCalculation.primaryResult);
+    sendCalculateEvent(mode.id);
   }, [debouncedCalculation, mode]);
 
   React.useEffect(() => {
@@ -192,6 +194,7 @@ export function CalculatorCard({
               label={labelText}
               value={formatted}
               copyText={buildCopyText(labelText, formatted)}
+              mode={mode.id}
             />
           );
         })}

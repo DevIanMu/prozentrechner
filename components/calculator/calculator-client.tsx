@@ -179,7 +179,7 @@ export function CalculatorClient({
               <Paragraphs text={content.educationText} />
             </div>
             <div>
-              <Quiz items={content.quiz} />
+              <Quiz items={content.quiz} mode={modeId} />
             </div>
           </div>
         </div>

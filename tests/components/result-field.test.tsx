@@ -1,9 +1,10 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { NextIntlClientProvider } from 'next-intl';
 import { ResultField } from '@/components/calculator/result-field';
 import messages from '@/messages/de.json';
+import * as analytics from '@/lib/analytics';
 
 function renderWithIntl(ui: React.ReactNode) {
   return render(
@@ -14,6 +15,9 @@ function renderWithIntl(ui: React.ReactNode) {
 }
 
 describe('ResultField', () => {
+  beforeEach(() => {
+    vi.spyOn(analytics, 'sendCopyResultEvent').mockImplementation(() => {});
+  });
   it('renders label and value', () => {
     renderWithIntl(
       <ResultField label="Prozentwert" value="100,00 €" />
@@ -34,6 +38,7 @@ describe('ResultField', () => {
         label="Prozentwert"
         value="100,00 €"
         copyText="20% von 500 = 100,00 €"
+        mode="prozentwert"
       />
     );
 
@@ -41,6 +46,7 @@ describe('ResultField', () => {
     await userEvent.click(button);
 
     expect(writeText).toHaveBeenCalledWith('20% von 500 = 100,00 €');
+    expect(analytics.sendCopyResultEvent).toHaveBeenCalledWith('prozentwert');
   });
 
   it('falls back to copying the displayed value when copyText is omitted', async () => {
@@ -55,5 +61,20 @@ describe('ResultField', () => {
     await userEvent.click(button);
 
     expect(writeText).toHaveBeenCalledWith('100,00 €');
+    expect(analytics.sendCopyResultEvent).not.toHaveBeenCalled();
+  });
+
+  it('does not send an analytics event when mode is omitted', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.assign(navigator, {
+      clipboard: { writeText },
+    });
+
+    renderWithIntl(<ResultField label="Prozentwert" value="100,00 €" />);
+
+    const button = screen.getByRole('button', { name: /Kopieren/i });
+    await userEvent.click(button);
+
+    expect(analytics.sendCopyResultEvent).not.toHaveBeenCalled();
   });
 });
