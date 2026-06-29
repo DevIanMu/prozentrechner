@@ -15,7 +15,7 @@
 - Design specification: `docs/superpowers/specs/2026-06-10-prozentrechner-design.md`
 - Competitor research: `prozentrechner-net-research.md`
 - Visual analysis: `DESIGN-cal.md`
-- Prototypes (read-only, will be deleted before launch): `prototypes/`
+- Prototypes: `prototypes/` (deleted before launch — see Task 57).
 
 ---
 

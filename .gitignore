@@ -19,6 +19,8 @@ node_modules/
 
 # Testing
 /coverage/
+/test-results/
+/.lighthouseci/
 
 # Local env files
 .env.local
