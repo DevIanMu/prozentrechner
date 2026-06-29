@@ -21,8 +21,9 @@ node_modules/
 /coverage/
 
 # Local env files
+.env.local
 .env*.local
-.env*
+.env.*.local
 
 # Worktrees
 .worktrees/
