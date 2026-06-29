@@ -6,9 +6,11 @@ import { TopNav } from '@/components/layout/top-nav';
 import Footer from '@/components/layout/footer';
 import { UsercentricsScript } from '@/components/consent/usercentrics-script';
 import { GA4Script } from '@/components/analytics/ga4-script';
-import { KaTeXPreload } from '@/components/katex-preload';
 import { buildCanonicalUrl } from '@/lib/navigation';
 import './globals.css';
+
+const KATEX_CSS = 'https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css';
+const KATEX_CSS_INTEGRITY = 'sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb';
 
 const inter = localFont({
   src: '../fonts/Inter-latin.woff2',
@@ -56,7 +58,23 @@ export default async function LocaleLayout({
       <head>
         <link rel="dns-prefetch" href="https://app.usercentrics.eu" />
         <link rel="preconnect" href="https://app.usercentrics.eu" crossOrigin="anonymous" />
-        <KaTeXPreload />
+        <link rel="preload" href={KATEX_CSS} as="style" integrity={KATEX_CSS_INTEGRITY} crossOrigin="anonymous" />
+        <link
+          id="katex-style"
+          rel="stylesheet"
+          href={KATEX_CSS}
+          media="print"
+          integrity={KATEX_CSS_INTEGRITY}
+          crossOrigin="anonymous"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.getElementById('katex-style');if(l){l.onload=function(){this.media='all';};if(l.sheet){l.media='all';}}})();`,
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href={KATEX_CSS} integrity={KATEX_CSS_INTEGRITY} crossOrigin="anonymous" />
+        </noscript>
         <UsercentricsScript />
         <GA4Script />
       </head>
