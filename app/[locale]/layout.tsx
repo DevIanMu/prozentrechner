@@ -58,6 +58,8 @@ export default async function LocaleLayout({
       <head>
         <link rel="dns-prefetch" href="https://app.usercentrics.eu" />
         <link rel="preconnect" href="https://app.usercentrics.eu" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="preload" href={KATEX_CSS} as="style" integrity={KATEX_CSS_INTEGRITY} crossOrigin="anonymous" />
         <link
           id="katex-style"
