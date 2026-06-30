@@ -1,20 +1,25 @@
-const PLACEHOLDER_SETTINGS_ID = 'YOUR_USERCENTRICS_SETTINGS_ID';
+const PLACEHOLDER_RULESET_ID = 'YOUR_USERCENTRICS_RULESET_ID';
 
 export function UsercentricsScript() {
-  const settingsId =
-    process.env.NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID?.trim() || PLACEHOLDER_SETTINGS_ID;
+  const rulesetId =
+    process.env.NEXT_PUBLIC_USERCENTRICS_RULESET_ID?.trim() || PLACEHOLDER_RULESET_ID;
 
-  if (!settingsId || settingsId === PLACEHOLDER_SETTINGS_ID) {
+  if (!rulesetId || rulesetId === PLACEHOLDER_RULESET_ID) {
     return null;
   }
 
   return (
-    <script
-      id="usercentrics-cmp"
-      src="https://app.usercentrics.eu/latest/main.js"
-      data-settings-id={settingsId}
-      data-eu-mode="true"
-      async
-    />
+    <>
+      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+      <script
+        src="https://web.cmp.usercentrics.eu/modules/autoblocker.js"
+      />
+      <script
+        id="usercentrics-cmp"
+        src="https://web.cmp.usercentrics.eu/ui/loader.js"
+        data-ruleset-id={rulesetId}
+        async
+      />
+    </>
   );
 }
