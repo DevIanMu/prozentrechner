@@ -26,7 +26,7 @@
     "metaTitle": "Impressum — ProzentRechner",
     "metaDescription": "Impressum und rechtliche Angaben zu ProzentRechner.",
     "title": "Impressum",
-    "placeholderNotice": "Die folgenden Angaben sind Platzhalter und müssen vor dem Launch durch die korrekten Daten ersetzt werden.",
+    "placeholderNotice": "Die folgenden Angaben entsprechen den aktuellen Impressumspflichten gemäß § 5 TMG.",
     "emailLabel": "E-Mail:",
     "sections": {
       "owner": "Angaben gemäß § 5 TMG",
@@ -35,19 +35,19 @@
       "responsible": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV"
     },
     "placeholders": {
-      "ownerName": "[Name des Betreibers]",
-      "street": "[Straße und Hausnummer]",
-      "city": "[PLZ und Ort]",
-      "country": "[Land]",
-      "email": "[E-Mail-Adresse]",
-      "responsiblePerson": "[Name der verantwortlichen Person]"
+      "ownerName": "Yi Mou",
+      "street": "Gebäude 241, Shuiwei Cun, Futian Qu",
+      "city": "Shenzhen, Guangdong",
+      "country": "China",
+      "email": "mou.yi.guge@gmail.com",
+      "responsiblePerson": "Yi Mou"
     }
   },
   "datenschutz": {
     "metaTitle": "Datenschutz — ProzentRechner",
     "metaDescription": "Datenschutzerklärung von ProzentRechner: Informationen zur Datenverarbeitung, localStorage, Google Analytics 4 und Usercentrics.",
     "title": "Datenschutz",
-    "placeholderNotice": "Die folgenden Angaben sind Platzhalter und müssen vor dem Launch durch die korrekten Daten ersetzt werden.",
+    "placeholderNotice": "Die folgenden Angaben beschreiben die aktuelle Datenverarbeitung auf dieser Website.",
     "sections": {
       "scope": "Geltungsbereich",
       "responsible": "Verantwortlicher",
@@ -98,9 +98,9 @@
       "Diese Datenschutzerklärung wurde als Entwurf erstellt. Vor dem Launch muss sie von einer datenschutzrechtlich versierten Fachkraft geprüft und an die tatsächlich eingesetzten Dienste angepasst werden."
     ],
     "placeholders": {
-      "responsibleParty": "[Name und vollständige Anschrift des Verantwortlichen]",
-      "email": "[datenschutz@beispiel.de]",
-      "hostingProvider": "[Name und Anschrift des Hosting-Anbieters]"
+      "responsibleParty": "Yi Mou, Gebäude 241, Shuiwei Cun, Futian Qu, Shenzhen, Guangdong, China",
+      "email": "mou.yi.guge@gmail.com",
+      "hostingProvider": "Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA"
     }
   },
   "nav": {
