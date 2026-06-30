@@ -67,9 +67,10 @@ export function Quiz({ items, mode }: QuizProps) {
               key={itemIndex}
               className="rounded-xl border border-hairline bg-canvas p-6"
             >
-              <legend className="text-title-sm text-ink mb-4">
+              <legend className="sr-only">{item.question}</legend>
+              <p className="text-title-sm text-ink mb-4" aria-hidden="true">
                 {item.question}
-              </legend>
+              </p>
               <div className="space-y-3">
                 {item.options.map((option, optionIndex) => {
                   const isSelected = state?.selectedIndex === optionIndex;

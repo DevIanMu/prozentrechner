@@ -36,7 +36,7 @@ describe('Quiz', () => {
   it('renders quiz question and options', () => {
     renderWithIntl(<Quiz items={items} />);
 
-    expect(screen.getByText('Was ist 20 % von 100?')).toBeInTheDocument();
+    expect(screen.getByText('Was ist 20 % von 100?', { selector: 'p' })).toBeInTheDocument();
     expect(screen.getByLabelText('10')).toBeInTheDocument();
     expect(screen.getByLabelText('20')).toBeInTheDocument();
     expect(screen.getByLabelText('30')).toBeInTheDocument();
