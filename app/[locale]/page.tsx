@@ -10,7 +10,7 @@ import { buildCanonicalUrl } from '@/lib/navigation';
 import type { FAQ } from '@/lib/content';
 
 function getBaseUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://www.prozentrechner100.com';
 }
 
 export function generateStaticParams() {

@@ -29,7 +29,7 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'metadata' });
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.prozentrechner100.com';
   const canonical = buildCanonicalUrl(baseUrl, locale, '/');
   return {
     title: t('title'),

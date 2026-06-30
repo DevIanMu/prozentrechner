@@ -16,7 +16,7 @@ const PATHS = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prozentrechner.de';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.prozentrechner100.com';
   const locale = defaultLocale;
 
   return PATHS.map(({ path, priority }) => ({
