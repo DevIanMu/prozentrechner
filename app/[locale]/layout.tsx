@@ -1,27 +1,11 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { TopNav } from '@/components/layout/top-nav';
 import Footer from '@/components/layout/footer';
-import { UsercentricsScript } from '@/components/consent/usercentrics-script';
+import { UsercentricsLoaderScript } from '@/components/consent/usercentrics-script';
 import { GA4Script } from '@/components/analytics/ga4-script';
 import { buildCanonicalUrl } from '@/lib/navigation';
-import './globals.css';
-
-const KATEX_CSS = 'https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css';
-const KATEX_CSS_INTEGRITY = 'sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB';
-
-const inter = localFont({
-  src: '../fonts/Inter-latin.woff2',
-  variable: '--font-inter',
-  display: 'swap',
-});
-const jetbrainsMono = localFont({
-  src: '../fonts/JetBrainsMono-latin.woff2',
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-});
 
 export async function generateMetadata({
   params: { locale },
@@ -54,39 +38,14 @@ export default async function LocaleLayout({
 }) {
   const messages = await getMessages();
   return (
-    <html lang={locale} className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        <link rel="dns-prefetch" href="https://app.usercentrics.eu" />
-        <link rel="preconnect" href="https://app.usercentrics.eu" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link rel="preload" href={KATEX_CSS} as="style" integrity={KATEX_CSS_INTEGRITY} crossOrigin="anonymous" />
-        <link
-          id="katex-style"
-          rel="stylesheet"
-          href={KATEX_CSS}
-          media="print"
-          integrity={KATEX_CSS_INTEGRITY}
-          crossOrigin="anonymous"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var l=document.getElementById('katex-style');if(l){l.onload=function(){this.media='all';};if(l.sheet){l.media='all';}}})();`,
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href={KATEX_CSS} integrity={KATEX_CSS_INTEGRITY} crossOrigin="anonymous" />
-        </noscript>
-        <UsercentricsScript />
-        <GA4Script />
-      </head>
-      <body className="font-sans antialiased bg-canvas text-ink">
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <TopNav />
-          <main>{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <UsercentricsLoaderScript />
+      <GA4Script />
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <TopNav />
+        <main>{children}</main>
+        <Footer />
+      </NextIntlClientProvider>
+    </>
   );
 }

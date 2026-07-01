@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env NEXT_BUILD=1 next build",
+    "build": "cross-env NEXT_BUILD=1 next build && node scripts/postbuild.mjs",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
