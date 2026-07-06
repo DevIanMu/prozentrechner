@@ -26,6 +26,28 @@ export async function generateMetadata({
         'de-CH': canonical,
       },
     },
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: canonical,
+      siteName: 'ProzentRechner',
+      locale: 'de_DE',
+      type: 'website',
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 512,
+          height: 512,
+          alt: 'ProzentRechner',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: [`${baseUrl}/og-image.png`],
+    },
   };
 }
 
